@@ -1,0 +1,39 @@
+<html>
+<head>
+	<title></title>
+</head>
+<link rel="stylesheet" type="text/css" href="../../themes/css/contextMenu.css">
+<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+<script
+ type="text/javascript" src="jquery.contextMenu.js"></script>
+
+<script>
+$(function(){
+    $.contextMenu({
+        selector: '.context-menu-one', 
+        callback: function(key, options) {
+            var m = "clicked: " + key;
+            window.console && console.log(m) || alert(m); 
+        },
+        items: {
+            "edit": {name: "Edit", icon: "edit"},
+            "cut": {name: "Cut", icon: "cut"},
+            "copy": {name: "Copy", icon: "copy"},
+            "paste": {name: "Paste", icon: "paste"},
+            "delete": {name: "Delete", icon: "delete"},
+            "sep1": "---------",
+            "quit": {name: "Quit", icon: "quit"}
+        }
+    });
+    
+    $('.context-menu-one').on('click', function(e){
+        console.log('clicked', this);
+    })
+});
+</script>
+<body>
+<div class="context-menu-one box menu-1">
+    <strong>right click me</strong>
+</div>
+</body>
+</html>

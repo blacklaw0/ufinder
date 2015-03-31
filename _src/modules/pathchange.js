@@ -35,6 +35,9 @@ UF.registerModule("pathchangemodule", function () {
                 }
             }
         },
+        "shortcutKeys": {
+            "pathparent": "8" // 退格键
+        },
         "events": {
             'currentPathChange': function (type, path) {
                 uf._pathHistory.splice(uf._pathHistoryIndex, uf._pathHistory.length, path);

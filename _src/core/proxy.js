@@ -51,12 +51,36 @@ var Proxy = UF.Proxy = UF.createClass("Proxy", {
             'target': target
         }, callback);
     },
+    'move': function (target, callback) {
+        return this._get({
+            'cmd': 'mv',
+            'target': target
+        }, callback);
+    },
+    'copy': function (target, callback) {
+        return this._get({
+            'cmd': 'copy',
+            'target': target
+        }, callback);
+    },
     upload: function (target, file, callback) {
         return this._upload({
             'cmd': 'upload',
             'target': target,
             'file': file
         }, callback, file);
+    },
+    preview: function (target, callback) {
+        return this._get({
+            'cmd': 'preview',
+            'target': target
+        }, callback);
+    },
+    search: function (target, callback) {
+        return this._get({
+            'cmd': 'search',
+            'target': target
+        }, callback);
     },
     info: function (target, callback) {
         return this._get({
@@ -105,13 +129,15 @@ var Proxy = UF.Proxy = UF.createClass("Proxy", {
         }
 
         me._pushRequest(request);
-        me.finder.fire('showmessage', {
-            icon: 'loading',
-            title: data.cmd + ' loading...',
-            loadedPercent: 100,
-            request: request,
-            id: request.id
-        });
+        // 部分指令不需要缓冲进度条
+        if (['search', 'preview'].indexOf(data['cmd']) == -1)
+            me.finder.fire('showmessage', {
+                icon: 'loading',
+                title: data.cmd + ' loading...',
+                loadedPercent: 100,
+                request: request,
+                id: request.id
+            });
 
         return request;
     },

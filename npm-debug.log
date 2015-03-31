@@ -1,0 +1,619 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.1
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose install where, deps [ 'D:\\Program Files\\wamp\\www\\git\\ufinder',
+5 verbose install   [ 'grunt',
+5 verbose install     'grunt-contrib-concat',
+5 verbose install     'grunt-contrib-uglify',
+5 verbose install     'grunt-contrib-cssmin',
+5 verbose install     'grunt-contrib-copy',
+5 verbose install     'grunt-regarde',
+5 verbose install     'grunt-contrib-connect',
+5 verbose install     'grunt-contrib-livereload' ] ]
+6 verbose install where, peers [ 'D:\\Program Files\\wamp\\www\\git\\ufinder', [] ]
+7 info preinstall ufinder@1.0.0
+8 silly cache add args [ 'grunt-contrib-uglify@~0.2.6', null ]
+9 verbose cache add spec grunt-contrib-uglify@~0.2.6
+10 silly cache add parsed spec { raw: 'grunt-contrib-uglify@~0.2.6',
+10 silly cache add   scope: null,
+10 silly cache add   name: 'grunt-contrib-uglify',
+10 silly cache add   rawSpec: '~0.2.6',
+10 silly cache add   spec: '>=0.2.6 <0.3.0',
+10 silly cache add   type: 'range' }
+11 verbose addNamed grunt-contrib-uglify@>=0.2.6 <0.3.0
+12 silly addNamed semver.valid null
+13 silly addNamed semver.validRange >=0.2.6 <0.3.0
+14 silly addNameRange { name: 'grunt-contrib-uglify',
+14 silly addNameRange   range: '>=0.2.6 <0.3.0',
+14 silly addNameRange   hasData: false }
+15 silly mapToRegistry name grunt-contrib-uglify
+16 silly mapToRegistry using default registry
+17 silly mapToRegistry registry https://registry.npmjs.org/
+18 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-uglify
+19 verbose addNameRange registry:https://registry.npmjs.org/grunt-contrib-uglify not in flight; fetching
+20 silly cache add args [ 'grunt-contrib-cssmin@~0.6.0', null ]
+21 verbose cache add spec grunt-contrib-cssmin@~0.6.0
+22 silly cache add parsed spec { raw: 'grunt-contrib-cssmin@~0.6.0',
+22 silly cache add   scope: null,
+22 silly cache add   name: 'grunt-contrib-cssmin',
+22 silly cache add   rawSpec: '~0.6.0',
+22 silly cache add   spec: '>=0.6.0 <0.7.0',
+22 silly cache add   type: 'range' }
+23 verbose addNamed grunt-contrib-cssmin@>=0.6.0 <0.7.0
+24 silly addNamed semver.valid null
+25 silly addNamed semver.validRange >=0.6.0 <0.7.0
+26 silly addNameRange { name: 'grunt-contrib-cssmin',
+26 silly addNameRange   range: '>=0.6.0 <0.7.0',
+26 silly addNameRange   hasData: false }
+27 silly mapToRegistry name grunt-contrib-cssmin
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-cssmin
+31 verbose addNameRange registry:https://registry.npmjs.org/grunt-contrib-cssmin not in flight; fetching
+32 silly cache add args [ 'grunt-contrib-copy@~0.4.0', null ]
+33 verbose cache add spec grunt-contrib-copy@~0.4.0
+34 silly cache add parsed spec { raw: 'grunt-contrib-copy@~0.4.0',
+34 silly cache add   scope: null,
+34 silly cache add   name: 'grunt-contrib-copy',
+34 silly cache add   rawSpec: '~0.4.0',
+34 silly cache add   spec: '>=0.4.0 <0.5.0',
+34 silly cache add   type: 'range' }
+35 verbose addNamed grunt-contrib-copy@>=0.4.0 <0.5.0
+36 silly addNamed semver.valid null
+37 silly addNamed semver.validRange >=0.4.0 <0.5.0
+38 silly addNameRange { name: 'grunt-contrib-copy',
+38 silly addNameRange   range: '>=0.4.0 <0.5.0',
+38 silly addNameRange   hasData: false }
+39 silly mapToRegistry name grunt-contrib-copy
+40 silly mapToRegistry using default registry
+41 silly mapToRegistry registry https://registry.npmjs.org/
+42 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-copy
+43 verbose addNameRange registry:https://registry.npmjs.org/grunt-contrib-copy not in flight; fetching
+44 silly cache add args [ 'grunt-regarde@0.4.13', null ]
+45 verbose cache add spec grunt-regarde@0.4.13
+46 silly cache add parsed spec { raw: 'grunt-regarde@0.4.13',
+46 silly cache add   scope: null,
+46 silly cache add   name: 'grunt-regarde',
+46 silly cache add   rawSpec: '0.4.13',
+46 silly cache add   spec: '0.4.13',
+46 silly cache add   type: 'version' }
+47 verbose addNamed grunt-regarde@0.4.13
+48 silly addNamed semver.valid 0.4.13
+49 silly addNamed semver.validRange 0.4.13
+50 silly mapToRegistry name grunt-regarde
+51 silly mapToRegistry using default registry
+52 silly mapToRegistry registry https://registry.npmjs.org/
+53 silly mapToRegistry uri https://registry.npmjs.org/grunt-regarde
+54 verbose addNameVersion registry:https://registry.npmjs.org/grunt-regarde not in flight; fetching
+55 silly cache add args [ 'grunt-contrib-connect@0.7.1', null ]
+56 verbose cache add spec grunt-contrib-connect@0.7.1
+57 silly cache add parsed spec { raw: 'grunt-contrib-connect@0.7.1',
+57 silly cache add   scope: null,
+57 silly cache add   name: 'grunt-contrib-connect',
+57 silly cache add   rawSpec: '0.7.1',
+57 silly cache add   spec: '0.7.1',
+57 silly cache add   type: 'version' }
+58 verbose addNamed grunt-contrib-connect@0.7.1
+59 silly addNamed semver.valid 0.7.1
+60 silly addNamed semver.validRange 0.7.1
+61 silly mapToRegistry name grunt-contrib-connect
+62 silly mapToRegistry using default registry
+63 silly mapToRegistry registry https://registry.npmjs.org/
+64 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-connect
+65 verbose addNameVersion registry:https://registry.npmjs.org/grunt-contrib-connect not in flight; fetching
+66 silly cache add args [ 'grunt-contrib-livereload@0.1.2', null ]
+67 verbose cache add spec grunt-contrib-livereload@0.1.2
+68 silly cache add parsed spec { raw: 'grunt-contrib-livereload@0.1.2',
+68 silly cache add   scope: null,
+68 silly cache add   name: 'grunt-contrib-livereload',
+68 silly cache add   rawSpec: '0.1.2',
+68 silly cache add   spec: '0.1.2',
+68 silly cache add   type: 'version' }
+69 verbose addNamed grunt-contrib-livereload@0.1.2
+70 silly addNamed semver.valid 0.1.2
+71 silly addNamed semver.validRange 0.1.2
+72 silly mapToRegistry name grunt-contrib-livereload
+73 silly mapToRegistry using default registry
+74 silly mapToRegistry registry https://registry.npmjs.org/
+75 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-livereload
+76 verbose addNameVersion registry:https://registry.npmjs.org/grunt-contrib-livereload not in flight; fetching
+77 silly cache add args [ 'grunt@~0.4.1', null ]
+78 verbose cache add spec grunt@~0.4.1
+79 silly cache add parsed spec { raw: 'grunt@~0.4.1',
+79 silly cache add   scope: null,
+79 silly cache add   name: 'grunt',
+79 silly cache add   rawSpec: '~0.4.1',
+79 silly cache add   spec: '>=0.4.1 <0.5.0',
+79 silly cache add   type: 'range' }
+80 verbose addNamed grunt@>=0.4.1 <0.5.0
+81 silly addNamed semver.valid null
+82 silly addNamed semver.validRange >=0.4.1 <0.5.0
+83 silly addNameRange { name: 'grunt', range: '>=0.4.1 <0.5.0', hasData: false }
+84 silly mapToRegistry name grunt
+85 silly mapToRegistry using default registry
+86 silly mapToRegistry registry https://registry.npmjs.org/
+87 silly mapToRegistry uri https://registry.npmjs.org/grunt
+88 verbose addNameRange registry:https://registry.npmjs.org/grunt not in flight; fetching
+89 silly cache add args [ 'grunt-contrib-concat@~0.3.0', null ]
+90 verbose cache add spec grunt-contrib-concat@~0.3.0
+91 silly cache add parsed spec { raw: 'grunt-contrib-concat@~0.3.0',
+91 silly cache add   scope: null,
+91 silly cache add   name: 'grunt-contrib-concat',
+91 silly cache add   rawSpec: '~0.3.0',
+91 silly cache add   spec: '>=0.3.0 <0.4.0',
+91 silly cache add   type: 'range' }
+92 verbose addNamed grunt-contrib-concat@>=0.3.0 <0.4.0
+93 silly addNamed semver.valid null
+94 silly addNamed semver.validRange >=0.3.0 <0.4.0
+95 silly addNameRange { name: 'grunt-contrib-concat',
+95 silly addNameRange   range: '>=0.3.0 <0.4.0',
+95 silly addNameRange   hasData: false }
+96 silly mapToRegistry name grunt-contrib-concat
+97 silly mapToRegistry using default registry
+98 silly mapToRegistry registry https://registry.npmjs.org/
+99 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-concat
+100 verbose addNameRange registry:https://registry.npmjs.org/grunt-contrib-concat not in flight; fetching
+101 verbose request uri https://registry.npmjs.org/grunt-contrib-uglify
+102 verbose request no auth needed
+103 info attempt registry request try #1 at 18:51:25
+104 verbose request id 727bf7cdeb343cc5
+105 http request GET https://registry.npmjs.org/grunt-contrib-uglify
+106 verbose request uri https://registry.npmjs.org/grunt-contrib-cssmin
+107 verbose request no auth needed
+108 info attempt registry request try #1 at 18:51:25
+109 http request GET https://registry.npmjs.org/grunt-contrib-cssmin
+110 verbose request uri https://registry.npmjs.org/grunt-contrib-copy
+111 verbose request no auth needed
+112 info attempt registry request try #1 at 18:51:25
+113 http request GET https://registry.npmjs.org/grunt-contrib-copy
+114 verbose request uri https://registry.npmjs.org/grunt-regarde
+115 verbose request no auth needed
+116 info attempt registry request try #1 at 18:51:25
+117 http request GET https://registry.npmjs.org/grunt-regarde
+118 verbose request uri https://registry.npmjs.org/grunt-contrib-connect
+119 verbose request no auth needed
+120 info attempt registry request try #1 at 18:51:25
+121 http request GET https://registry.npmjs.org/grunt-contrib-connect
+122 verbose request uri https://registry.npmjs.org/grunt-contrib-livereload
+123 verbose request no auth needed
+124 info attempt registry request try #1 at 18:51:25
+125 http request GET https://registry.npmjs.org/grunt-contrib-livereload
+126 verbose request uri https://registry.npmjs.org/grunt-contrib-concat
+127 verbose request no auth needed
+128 info attempt registry request try #1 at 18:51:25
+129 http request GET https://registry.npmjs.org/grunt-contrib-concat
+130 verbose request uri https://registry.npmjs.org/grunt
+131 verbose request no auth needed
+132 info attempt registry request try #1 at 18:51:25
+133 verbose etag "25DJXUJGBU9ZVZ9SCRIWZLEFB"
+134 http request GET https://registry.npmjs.org/grunt
+135 http 200 https://registry.npmjs.org/grunt-contrib-livereload
+136 silly get cb [ 200,
+136 silly get   { date: 'Tue, 31 Mar 2015 10:51:26 GMT',
+136 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+136 silly get     etag: '"7BRHHY1A4ASOMRK6KWISER4NL"',
+136 silly get     'content-type': 'application/json',
+136 silly get     'cache-control': 'max-age=60',
+136 silly get     'content-length': '9466',
+136 silly get     'accept-ranges': 'bytes',
+136 silly get     via: '1.1 varnish',
+136 silly get     age: '0',
+136 silly get     'x-served-by': 'cache-nrt6132-NRT',
+136 silly get     'x-cache': 'HIT',
+136 silly get     'x-cache-hits': '1',
+136 silly get     'x-timer': 'S1427799085.915229,VS0,VE114',
+136 silly get     vary: 'Accept',
+136 silly get     'keep-alive': 'timeout=10, max=50',
+136 silly get     connection: 'Keep-Alive' } ]
+137 verbose get saving grunt-contrib-livereload to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\grunt-contrib-livereload\.cache.json
+138 http 200 https://registry.npmjs.org/grunt-contrib-cssmin
+139 silly get cb [ 200,
+139 silly get   { date: 'Tue, 31 Mar 2015 10:51:25 GMT',
+139 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+139 silly get     etag: '"7KZVTMZWULLEE8GV8TLMTGNEG"',
+139 silly get     'content-type': 'application/json',
+139 silly get     'cache-control': 'max-age=60',
+139 silly get     'content-length': '32900',
+139 silly get     'accept-ranges': 'bytes',
+139 silly get     via: '1.1 varnish',
+139 silly get     age: '40',
+139 silly get     'x-served-by': 'cache-nrt6124-NRT',
+139 silly get     'x-cache': 'HIT',
+139 silly get     'x-cache-hits': '1',
+139 silly get     'x-timer': 'S1427799085.900077,VS0,VE1',
+139 silly get     vary: 'Accept',
+139 silly get     'keep-alive': 'timeout=10, max=50',
+139 silly get     connection: 'Keep-Alive' } ]
+140 verbose get saving grunt-contrib-cssmin to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\grunt-contrib-cssmin\.cache.json
+141 warn deprecated grunt-contrib-livereload@0.1.2: Deprecated in favor of grunt-contrib-watch which now have Livereload support built-in.
+142 silly mapToRegistry name grunt-contrib-livereload
+143 silly mapToRegistry using default registry
+144 silly mapToRegistry registry https://registry.npmjs.org/
+145 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-livereload
+146 verbose addRemoteTarball https://registry.npmjs.org/grunt-contrib-livereload/-/grunt-contrib-livereload-0.1.2.tgz not in flight; adding
+147 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-contrib-livereload/-/grunt-contrib-livereload-0.1.2.tgz',
+147 verbose addRemoteTarball   'd7dfaf46bef596e868f354f29a092863080bfeec' ]
+148 silly addNameRange number 2 { name: 'grunt-contrib-cssmin',
+148 silly addNameRange   range: '>=0.6.0 <0.7.0',
+148 silly addNameRange   hasData: true }
+149 silly addNameRange versions [ 'grunt-contrib-cssmin',
+149 silly addNameRange   [ '0.4.0',
+149 silly addNameRange     '0.4.1',
+149 silly addNameRange     '0.4.2',
+149 silly addNameRange     '0.5.0',
+149 silly addNameRange     '0.6.0',
+149 silly addNameRange     '0.6.1',
+149 silly addNameRange     '0.6.2',
+149 silly addNameRange     '0.7.0',
+149 silly addNameRange     '0.8.0',
+149 silly addNameRange     '0.9.0',
+149 silly addNameRange     '0.10.0',
+149 silly addNameRange     '0.11.0',
+149 silly addNameRange     '0.12.0',
+149 silly addNameRange     '0.12.1',
+149 silly addNameRange     '0.12.2' ] ]
+150 verbose addNamed grunt-contrib-cssmin@0.6.2
+151 silly addNamed semver.valid 0.6.2
+152 silly addNamed semver.validRange 0.6.2
+153 silly mapToRegistry name grunt-contrib-cssmin
+154 silly mapToRegistry using default registry
+155 silly mapToRegistry registry https://registry.npmjs.org/
+156 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-cssmin
+157 verbose addRemoteTarball https://registry.npmjs.org/grunt-contrib-cssmin/-/grunt-contrib-cssmin-0.6.2.tgz not in flight; adding
+158 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-contrib-cssmin/-/grunt-contrib-cssmin-0.6.2.tgz',
+158 verbose addRemoteTarball   '2804dc0e81f98e8a54d61eee84a1d3fe1a3af8e2' ]
+159 info retry fetch attempt 1 at 18:51:26
+160 info attempt registry request try #1 at 18:51:26
+161 http fetch GET https://registry.npmjs.org/grunt-contrib-livereload/-/grunt-contrib-livereload-0.1.2.tgz
+162 info retry fetch attempt 1 at 18:51:26
+163 info attempt registry request try #1 at 18:51:26
+164 http fetch GET https://registry.npmjs.org/grunt-contrib-cssmin/-/grunt-contrib-cssmin-0.6.2.tgz
+165 http 200 https://registry.npmjs.org/grunt-contrib-copy
+166 silly get cb [ 200,
+166 silly get   { date: 'Tue, 31 Mar 2015 10:51:25 GMT',
+166 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+166 silly get     etag: '"BSB34S4YV65LAR5UUBDJZMLQB"',
+166 silly get     'content-type': 'application/json',
+166 silly get     'cache-control': 'max-age=60',
+166 silly get     'content-length': '32594',
+166 silly get     'accept-ranges': 'bytes',
+166 silly get     via: '1.1 varnish',
+166 silly get     age: '56',
+166 silly get     'x-served-by': 'cache-nrt6124-NRT',
+166 silly get     'x-cache': 'HIT',
+166 silly get     'x-cache-hits': '1',
+166 silly get     'x-timer': 'S1427799085.925009,VS0,VE1',
+166 silly get     vary: 'Accept',
+166 silly get     'keep-alive': 'timeout=10, max=50',
+166 silly get     connection: 'Keep-Alive' } ]
+167 verbose get saving grunt-contrib-copy to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\grunt-contrib-copy\.cache.json
+168 silly addNameRange number 2 { name: 'grunt-contrib-copy',
+168 silly addNameRange   range: '>=0.4.0 <0.5.0',
+168 silly addNameRange   hasData: true }
+169 silly addNameRange versions [ 'grunt-contrib-copy',
+169 silly addNameRange   [ '0.2.0',
+169 silly addNameRange     '0.2.1',
+169 silly addNameRange     '0.2.2',
+169 silly addNameRange     '0.2.3',
+169 silly addNameRange     '0.2.4',
+169 silly addNameRange     '0.3.0',
+169 silly addNameRange     '0.3.1',
+169 silly addNameRange     '0.3.2',
+169 silly addNameRange     '0.4.0',
+169 silly addNameRange     '0.4.1',
+169 silly addNameRange     '0.5.0',
+169 silly addNameRange     '0.6.0',
+169 silly addNameRange     '0.7.0',
+169 silly addNameRange     '0.8.0',
+169 silly addNameRange     '0.4.0-rc7' ] ]
+170 verbose addNamed grunt-contrib-copy@0.4.1
+171 silly addNamed semver.valid 0.4.1
+172 silly addNamed semver.validRange 0.4.1
+173 silly mapToRegistry name grunt-contrib-copy
+174 silly mapToRegistry using default registry
+175 silly mapToRegistry registry https://registry.npmjs.org/
+176 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-copy
+177 verbose addRemoteTarball https://registry.npmjs.org/grunt-contrib-copy/-/grunt-contrib-copy-0.4.1.tgz not in flight; adding
+178 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-contrib-copy/-/grunt-contrib-copy-0.4.1.tgz',
+178 verbose addRemoteTarball   'f0753b40ae21bb706daefb0b299e03cdf5fa9d6e' ]
+179 http 200 https://registry.npmjs.org/grunt-regarde
+180 silly get cb [ 200,
+180 silly get   { date: 'Tue, 31 Mar 2015 10:51:26 GMT',
+180 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+180 silly get     etag: '"7YX1IY4XWUQF1OUD2RI4WL5X3"',
+180 silly get     'content-type': 'application/json',
+180 silly get     'cache-control': 'max-age=60',
+180 silly get     'content-length': '6256',
+180 silly get     'accept-ranges': 'bytes',
+180 silly get     via: '1.1 varnish',
+180 silly get     age: '0',
+180 silly get     'x-served-by': 'cache-nrt6124-NRT',
+180 silly get     'x-cache': 'MISS',
+180 silly get     'x-cache-hits': '0',
+180 silly get     'x-timer': 'S1427799085.928670,VS0,VE175',
+180 silly get     vary: 'Accept',
+180 silly get     'keep-alive': 'timeout=10, max=50',
+180 silly get     connection: 'Keep-Alive' } ]
+181 verbose get saving grunt-regarde to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\grunt-regarde\.cache.json
+182 info retry fetch attempt 1 at 18:51:26
+183 info attempt registry request try #1 at 18:51:26
+184 http fetch GET https://registry.npmjs.org/grunt-contrib-copy/-/grunt-contrib-copy-0.4.1.tgz
+185 http 200 https://registry.npmjs.org/grunt-contrib-uglify
+186 silly get cb [ 200,
+186 silly get   { date: 'Tue, 31 Mar 2015 10:51:25 GMT',
+186 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+186 silly get     etag: '"B3H6SR65DYXVD2QLIMTK5VCM3"',
+186 silly get     'content-type': 'application/json',
+186 silly get     'cache-control': 'max-age=60',
+186 silly get     'content-length': '58794',
+186 silly get     'accept-ranges': 'bytes',
+186 silly get     via: '1.1 varnish',
+186 silly get     age: '56',
+186 silly get     'x-served-by': 'cache-nrt6127-NRT',
+186 silly get     'x-cache': 'HIT',
+186 silly get     'x-cache-hits': '1',
+186 silly get     'x-timer': 'S1427799085.928943,VS0,VE1',
+186 silly get     vary: 'Accept',
+186 silly get     'keep-alive': 'timeout=10, max=50',
+186 silly get     connection: 'Keep-Alive' } ]
+187 verbose get saving grunt-contrib-uglify to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\grunt-contrib-uglify\.cache.json
+188 silly addNameRange number 2 { name: 'grunt-contrib-uglify',
+188 silly addNameRange   range: '>=0.2.6 <0.3.0',
+188 silly addNameRange   hasData: true }
+189 silly addNameRange versions [ 'grunt-contrib-uglify',
+189 silly addNameRange   [ '0.1.0',
+189 silly addNameRange     '0.1.1',
+189 silly addNameRange     '0.1.2',
+189 silly addNameRange     '0.2.0',
+189 silly addNameRange     '0.2.1',
+189 silly addNameRange     '0.2.2',
+189 silly addNameRange     '0.2.3',
+189 silly addNameRange     '0.2.4',
+189 silly addNameRange     '0.2.5',
+189 silly addNameRange     '0.2.6',
+189 silly addNameRange     '0.2.7',
+189 silly addNameRange     '0.3.0',
+189 silly addNameRange     '0.3.1',
+189 silly addNameRange     '0.1.1-rc5',
+189 silly addNameRange     '0.1.1-rc6',
+189 silly addNameRange     '0.3.2',
+189 silly addNameRange     '0.3.3',
+189 silly addNameRange     '0.4.0',
+189 silly addNameRange     '0.5.0',
+189 silly addNameRange     '0.4.1',
+189 silly addNameRange     '0.5.1',
+189 silly addNameRange     '0.6.0',
+189 silly addNameRange     '0.7.0',
+189 silly addNameRange     '0.8.0',
+189 silly addNameRange     '0.8.1' ] ]
+190 verbose addNamed grunt-contrib-uglify@0.2.7
+191 silly addNamed semver.valid 0.2.7
+192 silly addNamed semver.validRange 0.2.7
+193 silly mapToRegistry name grunt-contrib-uglify
+194 silly mapToRegistry using default registry
+195 silly mapToRegistry registry https://registry.npmjs.org/
+196 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-uglify
+197 verbose addRemoteTarball https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.2.7.tgz not in flight; adding
+198 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.2.7.tgz',
+198 verbose addRemoteTarball   'e6bda51e0c40a1459f6cead423c65efd725a1bf7' ]
+199 info retry fetch attempt 1 at 18:51:26
+200 info attempt registry request try #1 at 18:51:26
+201 http fetch GET https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.2.7.tgz
+202 http 200 https://registry.npmjs.org/grunt
+203 silly get cb [ 200,
+203 silly get   { date: 'Tue, 31 Mar 2015 10:51:25 GMT',
+203 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+203 silly get     etag: '"2B9SZ9HPZATMCOM1NEZUPWQTH"',
+203 silly get     'content-type': 'application/json',
+203 silly get     'cache-control': 'max-age=60',
+203 silly get     'content-length': '88719',
+203 silly get     'accept-ranges': 'bytes',
+203 silly get     via: '1.1 varnish',
+203 silly get     age: '55',
+203 silly get     'x-served-by': 'cache-nrt6122-NRT',
+203 silly get     'x-cache': 'HIT',
+203 silly get     'x-cache-hits': '1',
+203 silly get     'x-timer': 'S1427799085.924216,VS0,VE1',
+203 silly get     vary: 'Accept',
+203 silly get     'keep-alive': 'timeout=10, max=50',
+203 silly get     connection: 'Keep-Alive' } ]
+204 verbose get saving grunt to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\grunt\.cache.json
+205 silly addNameRange number 2 { name: 'grunt', range: '>=0.4.1 <0.5.0', hasData: true }
+206 silly addNameRange versions [ 'grunt',
+206 silly addNameRange   [ '0.1.0',
+206 silly addNameRange     '0.1.1',
+206 silly addNameRange     '0.1.2',
+206 silly addNameRange     '0.2.0',
+206 silly addNameRange     '0.2.1',
+206 silly addNameRange     '0.2.2',
+206 silly addNameRange     '0.2.3',
+206 silly addNameRange     '0.2.4',
+206 silly addNameRange     '0.2.5',
+206 silly addNameRange     '0.2.6',
+206 silly addNameRange     '0.2.7',
+206 silly addNameRange     '0.2.8',
+206 silly addNameRange     '0.2.9',
+206 silly addNameRange     '0.2.10',
+206 silly addNameRange     '0.2.11',
+206 silly addNameRange     '0.2.12',
+206 silly addNameRange     '0.2.13',
+206 silly addNameRange     '0.2.14',
+206 silly addNameRange     '0.2.15',
+206 silly addNameRange     '0.3.0',
+206 silly addNameRange     '0.3.1',
+206 silly addNameRange     '0.3.2',
+206 silly addNameRange     '0.3.3',
+206 silly addNameRange     '0.3.4',
+206 silly addNameRange     '0.3.5',
+206 silly addNameRange     '0.3.6',
+206 silly addNameRange     '0.3.7',
+206 silly addNameRange     '0.3.8',
+206 silly addNameRange     '0.3.9',
+206 silly addNameRange     '0.3.10',
+206 silly addNameRange     '0.3.11',
+206 silly addNameRange     '0.3.12',
+206 silly addNameRange     '0.3.13',
+206 silly addNameRange     '0.3.14',
+206 silly addNameRange     '0.3.15',
+206 silly addNameRange     '0.3.16',
+206 silly addNameRange     '0.3.17',
+206 silly addNameRange     '0.4.0',
+206 silly addNameRange     '0.4.1',
+206 silly addNameRange     '0.4.2',
+206 silly addNameRange     '0.4.3',
+206 silly addNameRange     '0.4.4',
+206 silly addNameRange     '0.4.5',
+206 silly addNameRange     '0.3.13-a',
+206 silly addNameRange     '0.4.0-a',
+206 silly addNameRange     '0.4.0-rc1',
+206 silly addNameRange     '0.4.0-rc2',
+206 silly addNameRange     '0.4.0-rc3',
+206 silly addNameRange     '0.4.0-rc4',
+206 silly addNameRange     '0.4.0-rc5',
+206 silly addNameRange     '0.4.0-rc6',
+206 silly addNameRange     '0.4.0-rc7',
+206 silly addNameRange     '0.4.0-rc8' ] ]
+207 verbose addNamed grunt@0.4.5
+208 silly addNamed semver.valid 0.4.5
+209 silly addNamed semver.validRange 0.4.5
+210 silly cache afterAdd grunt@0.4.5
+211 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt\0.4.5\package\package.json not in flight; writing
+212 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt\0.4.5\package\package.json written
+213 http fetch 200 https://registry.npmjs.org/grunt-contrib-livereload/-/grunt-contrib-livereload-0.1.2.tgz
+214 silly fetchAndShaCheck shasum d7dfaf46bef596e868f354f29a092863080bfeec
+215 verbose addTmpTarball C:\Users\ADMINI~1\AppData\Local\Temp\npm-9572-e24bd216\registry.npmjs.org\grunt-contrib-livereload\-\grunt-contrib-livereload-0.1.2.tgz not in flight; adding
+216 verbose addTmpTarball already have metadata; skipping unpack for grunt-contrib-livereload@0.1.2
+217 silly cache afterAdd grunt-contrib-livereload@0.1.2
+218 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-livereload\0.1.2\package\package.json not in flight; writing
+219 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-livereload\0.1.2\package\package.json written
+220 http fetch 200 https://registry.npmjs.org/grunt-contrib-cssmin/-/grunt-contrib-cssmin-0.6.2.tgz
+221 silly fetchAndShaCheck shasum 2804dc0e81f98e8a54d61eee84a1d3fe1a3af8e2
+222 verbose addTmpTarball C:\Users\ADMINI~1\AppData\Local\Temp\npm-9572-e24bd216\registry.npmjs.org\grunt-contrib-cssmin\-\grunt-contrib-cssmin-0.6.2.tgz not in flight; adding
+223 verbose addTmpTarball already have metadata; skipping unpack for grunt-contrib-cssmin@0.6.2
+224 silly cache afterAdd grunt-contrib-cssmin@0.6.2
+225 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-cssmin\0.6.2\package\package.json not in flight; writing
+226 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-cssmin\0.6.2\package\package.json written
+227 http fetch 200 https://registry.npmjs.org/grunt-contrib-copy/-/grunt-contrib-copy-0.4.1.tgz
+228 silly fetchAndShaCheck shasum f0753b40ae21bb706daefb0b299e03cdf5fa9d6e
+229 verbose addTmpTarball C:\Users\ADMINI~1\AppData\Local\Temp\npm-9572-e24bd216\registry.npmjs.org\grunt-contrib-copy\-\grunt-contrib-copy-0.4.1.tgz not in flight; adding
+230 verbose addTmpTarball already have metadata; skipping unpack for grunt-contrib-copy@0.4.1
+231 silly cache afterAdd grunt-contrib-copy@0.4.1
+232 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-copy\0.4.1\package\package.json not in flight; writing
+233 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-copy\0.4.1\package\package.json written
+234 http 200 https://registry.npmjs.org/grunt-contrib-connect
+235 silly get cb [ 200,
+235 silly get   { date: 'Tue, 31 Mar 2015 10:51:26 GMT',
+235 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+235 silly get     etag: '"7NEZEF7OUIHYMJGCAIQ1DX3ZA"',
+235 silly get     'content-type': 'application/json',
+235 silly get     'cache-control': 'max-age=60',
+235 silly get     'content-length': '40666',
+235 silly get     'accept-ranges': 'bytes',
+235 silly get     via: '1.1 varnish',
+235 silly get     age: '0',
+235 silly get     'x-served-by': 'cache-nrt6131-NRT',
+235 silly get     'x-cache': 'HIT',
+235 silly get     'x-cache-hits': '1',
+235 silly get     'x-timer': 'S1427799086.029140,VS0,VE175',
+235 silly get     vary: 'Accept',
+235 silly get     'keep-alive': 'timeout=10, max=50',
+235 silly get     connection: 'Keep-Alive' } ]
+236 verbose get saving grunt-contrib-connect to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\grunt-contrib-connect\.cache.json
+237 silly mapToRegistry name grunt-contrib-connect
+238 silly mapToRegistry using default registry
+239 silly mapToRegistry registry https://registry.npmjs.org/
+240 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-connect
+241 verbose addRemoteTarball https://registry.npmjs.org/grunt-contrib-connect/-/grunt-contrib-connect-0.7.1.tgz not in flight; adding
+242 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-contrib-connect/-/grunt-contrib-connect-0.7.1.tgz',
+242 verbose addRemoteTarball   'cad8de445a8105b34912d1c20238cce98dc13ebe' ]
+243 info retry fetch attempt 1 at 18:51:26
+244 info attempt registry request try #1 at 18:51:26
+245 http fetch GET https://registry.npmjs.org/grunt-contrib-connect/-/grunt-contrib-connect-0.7.1.tgz
+246 http 200 https://registry.npmjs.org/grunt-contrib-concat
+247 silly get cb [ 200,
+247 silly get   { date: 'Tue, 31 Mar 2015 10:51:26 GMT',
+247 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+247 silly get     etag: '"7EG7A1FGU7PSDNQDN72PJJ99Q"',
+247 silly get     'content-type': 'application/json',
+247 silly get     'cache-control': 'max-age=60',
+247 silly get     'content-length': '29748',
+247 silly get     'accept-ranges': 'bytes',
+247 silly get     via: '1.1 varnish',
+247 silly get     age: '56',
+247 silly get     'x-served-by': 'cache-nrt6126-NRT',
+247 silly get     'x-cache': 'HIT',
+247 silly get     'x-cache-hits': '1',
+247 silly get     'x-timer': 'S1427799086.162459,VS0,VE2',
+247 silly get     vary: 'Accept',
+247 silly get     'keep-alive': 'timeout=10, max=50',
+247 silly get     connection: 'Keep-Alive' } ]
+248 verbose get saving grunt-contrib-concat to C:\Users\Administrator\AppData\Roaming\npm-cache\registry.npmjs.org\grunt-contrib-concat\.cache.json
+249 silly addNameRange number 2 { name: 'grunt-contrib-concat',
+249 silly addNameRange   range: '>=0.3.0 <0.4.0',
+249 silly addNameRange   hasData: true }
+250 silly addNameRange versions [ 'grunt-contrib-concat',
+250 silly addNameRange   [ '0.1.0',
+250 silly addNameRange     '0.1.1',
+250 silly addNameRange     '0.1.2',
+250 silly addNameRange     '0.1.3',
+250 silly addNameRange     '0.2.0',
+250 silly addNameRange     '0.3.0',
+250 silly addNameRange     '0.4.0',
+250 silly addNameRange     '0.5.0',
+250 silly addNameRange     '0.5.1',
+250 silly addNameRange     '0.1.2-rc5',
+250 silly addNameRange     '0.1.2-rc6' ] ]
+251 verbose addNamed grunt-contrib-concat@0.3.0
+252 silly addNamed semver.valid 0.3.0
+253 silly addNamed semver.validRange 0.3.0
+254 silly mapToRegistry name grunt-contrib-concat
+255 silly mapToRegistry using default registry
+256 silly mapToRegistry registry https://registry.npmjs.org/
+257 silly mapToRegistry uri https://registry.npmjs.org/grunt-contrib-concat
+258 verbose addRemoteTarball https://registry.npmjs.org/grunt-contrib-concat/-/grunt-contrib-concat-0.3.0.tgz not in flight; adding
+259 verbose addRemoteTarball [ 'https://registry.npmjs.org/grunt-contrib-concat/-/grunt-contrib-concat-0.3.0.tgz',
+259 verbose addRemoteTarball   '48fa0d4336d29b653ad8225a6bd6f856b4483e32' ]
+260 info retry fetch attempt 1 at 18:51:26
+261 info attempt registry request try #1 at 18:51:26
+262 http fetch GET https://registry.npmjs.org/grunt-contrib-concat/-/grunt-contrib-concat-0.3.0.tgz
+263 http fetch 200 https://registry.npmjs.org/grunt-contrib-uglify/-/grunt-contrib-uglify-0.2.7.tgz
+264 silly fetchAndShaCheck shasum e6bda51e0c40a1459f6cead423c65efd725a1bf7
+265 verbose addTmpTarball C:\Users\ADMINI~1\AppData\Local\Temp\npm-9572-e24bd216\registry.npmjs.org\grunt-contrib-uglify\-\grunt-contrib-uglify-0.2.7.tgz not in flight; adding
+266 verbose addTmpTarball already have metadata; skipping unpack for grunt-contrib-uglify@0.2.7
+267 silly cache afterAdd grunt-contrib-uglify@0.2.7
+268 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.2.7\package\package.json not in flight; writing
+269 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-uglify\0.2.7\package\package.json written
+270 http fetch 200 https://registry.npmjs.org/grunt-contrib-connect/-/grunt-contrib-connect-0.7.1.tgz
+271 silly fetchAndShaCheck shasum cad8de445a8105b34912d1c20238cce98dc13ebe
+272 verbose addTmpTarball C:\Users\ADMINI~1\AppData\Local\Temp\npm-9572-e24bd216\registry.npmjs.org\grunt-contrib-connect\-\grunt-contrib-connect-0.7.1.tgz not in flight; adding
+273 verbose addTmpTarball already have metadata; skipping unpack for grunt-contrib-connect@0.7.1
+274 silly cache afterAdd grunt-contrib-connect@0.7.1
+275 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-connect\0.7.1\package\package.json not in flight; writing
+276 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-connect\0.7.1\package\package.json written
+277 http fetch 200 https://registry.npmjs.org/grunt-contrib-concat/-/grunt-contrib-concat-0.3.0.tgz
+278 silly fetchAndShaCheck shasum 48fa0d4336d29b653ad8225a6bd6f856b4483e32
+279 verbose addTmpTarball C:\Users\ADMINI~1\AppData\Local\Temp\npm-9572-e24bd216\registry.npmjs.org\grunt-contrib-concat\-\grunt-contrib-concat-0.3.0.tgz not in flight; adding
+280 verbose addTmpTarball already have metadata; skipping unpack for grunt-contrib-concat@0.3.0
+281 silly cache afterAdd grunt-contrib-concat@0.3.0
+282 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-concat\0.3.0\package\package.json not in flight; writing
+283 verbose afterAdd C:\Users\Administrator\AppData\Roaming\npm-cache\grunt-contrib-concat\0.3.0\package\package.json written
+284 verbose stack Error: version not found: grunt-regarde@0.4.13
+284 verbose stack     at setData (C:\Program Files\nodejs\node_modules\npm\lib\cache\add-named.js:122:12)
+284 verbose stack     at RES (C:\Program Files\nodejs\node_modules\npm\node_modules\inflight\inflight.js:23:14)
+284 verbose stack     at f (C:\Program Files\nodejs\node_modules\npm\node_modules\once\once.js:17:25)
+284 verbose stack     at saved (C:\Program Files\nodejs\node_modules\npm\lib\cache\caching-client.js:173:7)
+284 verbose stack     at FSReqWrap.oncomplete (fs.js:99:15)
+285 verbose statusCode 404
+286 verbose cwd D:\Program Files\wamp\www\git\ufinder
+287 error Windows_NT 6.3.9600
+288 error argv "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install"
+289 error node v0.12.1
+290 error npm  v2.5.1
+291 error version not found: grunt-regarde@0.4.13
+292 error If you need help, you may report this error at:
+292 error     <http://github.com/npm/npm/issues>
+293 verbose exit [ 1, true ]

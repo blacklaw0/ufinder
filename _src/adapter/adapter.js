@@ -18,8 +18,21 @@ $.extend(UFinder, (function () {
         },
         _createToolbar: function (uf) {
             var toolbars = uf.getOption('toolbars');
+            // TODO: namespace stain, toolbar 改 registerUI
+            var $toolbar = $.ufuitoolbar({"placeholder": uf.getLang('hint')['search']});
+            // mousedown -> input blur -> mouseup -> finish click
+            $toolbar.delegate(".searchbox .search-ul li", "mousedown", function (e) {
+                var p = e.target.tagName == "LI" ? $(e.target) : $(e.target).parents("li");
+                var dir = p.attr("data-path");
+                var file = p.attr("filename");
+                uf.execCommand("open", dir);
 
-            var $toolbar = $.ufuitoolbar();
+                setTimeout(function () {
+                    uf.execCommand("selectfile", dir + file);
+                    uf.setFocus();
+                }, 500);
+            });
+
             uf.$container.append($toolbar);
             uf.$toolbar = $toolbar;
 
@@ -52,6 +65,16 @@ $.extend(UFinder, (function () {
             var $list = _ufinderUI['list'].call(uf, 'list');
             uf.$container.append($list);
             uf.$list = $list;
+        },
+        _createpreview: function (uf) {
+            var $preview = _ufinderUI['preview'].call(uf, 'list');
+            uf.$container.append($preview);
+            uf.$preview = $preview;
+        },
+        _createclipboard: function (uf) {
+            var $clipboard = _ufinderUI['clipboard'].call(uf, 'list');
+            uf.$list.append($clipboard);
+            uf.$clipboard = $clipboard;
         },
         _createMessageHolder: function (uf) {
             var $messageHolder = $('<div class="ufui-message-list"></div>');
@@ -101,6 +124,8 @@ $.extend(UFinder, (function () {
             this._createToolbar(uf);
             this._createtree(uf);
             this._createlist(uf);
+            this._createpreview(uf);
+            this._createclipboard(uf);
             this._createMessageHolder(uf);
 
             uf._initDomEvent();

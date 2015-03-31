@@ -157,4 +157,3 @@ UF.ui.define('modal', {
         return this.root().find('.ufui-modal-body');
     }
 });
-

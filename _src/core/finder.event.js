@@ -38,11 +38,13 @@ UF.extendClass(Finder, {
         /* 点击让ufinder获得焦点,帮助获取键盘事件 */
         $container.on('click', function (evt) {
             var target = evt.target;
+
             if (target.tagName != 'INPUT' && target.tagName != 'TEXTAREA' &&
                 target.contentEditable != true) {
                 // console.log('ufinder focus');
                 $keyListener.focus();
                 me.isFocused == false && me.setFocus();
+
             }
         });
         /* 点击document除掉当前ufinder的位置,让ufinder失去焦点 */
@@ -50,14 +52,16 @@ UF.extendClass(Finder, {
             /* 忽略代码触发的点击事件 */
             if (evt.originalEvent) {
                 var $ufContainer = $(evt.originalEvent.target).parents('.ufui-container');
-                if ($ufContainer[0] != $container[0]) {
+                // TODO: 菜单需要组织到 UFinder container 中
+
+                if ($(evt.originalEvent.target).parents(".context-menu-list").length == 0 && $ufContainer[0] != $container[0]) {
                     $keyListener.blur();
                     me.isFocused == true && me.setBlur();
                 }
             }
         });
         me.on('afterexeccommand', function (type, cmd) {
-            if (['rename', 'touch', 'mkdir'].indexOf(cmd) == -1) {
+            if (['rename', 'touch', 'mkdir', 'search', 'searchindex'].indexOf(cmd) == -1) {
                 $keyListener.focus();
             }
         });

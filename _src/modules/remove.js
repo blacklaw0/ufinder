@@ -1,11 +1,11 @@
 UF.registerModule("removemodule", function () {
     var uf = this;
     return {
-        "defaultOptions": {
-        },
+        "defaultOptions": {},
         "commands": {
             "remove": {
                 execute: function () {
+                    if (!confirm(uf.getLang('warning')['removebefore'])) return;
                     var paths = uf.getSelection().getSelectedFiles();
                     if (paths.length) {
                         uf.dataTree.lockFiles(paths);
@@ -40,7 +40,6 @@ UF.registerModule("removemodule", function () {
         "shortcutKeys": {
             "remove": "46" //remove Delete
         },
-        "events": {
-        }
+        "events": {}
     };
 });

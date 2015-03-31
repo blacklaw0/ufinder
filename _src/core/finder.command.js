@@ -34,6 +34,7 @@ UF.extendClass(Finder, {
         me.fire('beforeexeccommand', name);
         result = cmd.execute.apply(me, cmdArgs);
         me.fire('afterexeccommand', name);
+        //if (name == "search") aa;
 
         return result === undefined ? null : result;
     }

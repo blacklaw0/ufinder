@@ -73,7 +73,7 @@ module.exports = function (grunt) {
             base: {
                 files: [
                     {
-                        src: ['dialogs/**', 'lang/**', 'lib/**', 'server/**', 'themes/**'],
+                        src: ["server/**", 'dialogs/**', 'lang/**', 'lib/**', 'server/**', 'themes/**'],
                         dest: distDir
                     }
                 ]

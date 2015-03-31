@@ -24,15 +24,33 @@ var DataTree = UF.DataTree = UF.createClass("DataTree", {
         this.root = new FileNode(data);
         this.finder.fire('dataReady', data);
     },
-
-    _getFileNode: function (path) {
+    // 无缓存数据时记录最近的路径供递归open用
+    getNearestNode: function (path) {
         var current = this.root,
             pathArr = path.split('/');
-
         for (var i = 0; i < pathArr.length; i++) {
             var name = pathArr[i];
             if (name != '') {
+                var p = current;
                 current = current.getChild(name);
+                if (current == null) {
+                    return p.getInfo().path;
+                }
+            }
+        }
+        return path;
+    },
+    _getFileNode: function (path) {
+        var current = this.root,
+            pathArr = path.split('/');
+        for (var i = 0; i < pathArr.length; i++) {
+            var name = pathArr[i];
+            if (name != '') {
+                var p = current;
+                current = current.getChild(name);
+                if (current == null) {
+                    return current;
+                }
             }
         }
         return current;
@@ -80,6 +98,7 @@ var DataTree = UF.DataTree = UF.createClass("DataTree", {
     },
     addFiles: function (datas) {
         var me = this;
+
         $.each(datas, function (key, data) {
             me.addFile(data);
         });
@@ -115,10 +134,24 @@ var DataTree = UF.DataTree = UF.createClass("DataTree", {
     listDirFileInfo: function (path) {
         var filelist = [],
             dir = this._getFileNode(path);
+        if (dir == null) {
+            return null;
+        }
         $.each(dir.children, function (k, v) {
             filelist.push(v.getInfo());
         });
         return filelist;
+    },
+    removeDirChilds: function (path) {
+        var paths = [], dir = this._getFileNode(path);
+        // 目录不存在, 不需要清除缓存
+        if (dir == null) return;
+        $.each(dir.children, function (k, v) {
+            paths.push(v.getInfo()['path']);
+        });
+        // 状态同步到list
+        this.removeFiles(paths);
+        dir.children.splice(0, dir.children.length);
     },
     isFileLocked: function (path) {
         return this._getFileNode(path).locked;

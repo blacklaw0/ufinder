@@ -108,7 +108,7 @@
 
         /* 工具栏按钮 */
         'toolbars': [
-            'open pathparent touch mkdir rename remove upload download lookimage lookcode'
+            'open pathparent touch mkdir rename remove upload download lookimage lookcode toggleliststyle togglepreview'
         ],
 
         /* 服务器url */

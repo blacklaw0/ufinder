@@ -14,6 +14,15 @@
 
 @import "file.css";
 @import "list.css";
+@import "preview.css";
 @import "leaf.css";
 @import "tree.css";
 @import "message.css";
+
+@import "contextMenu.css";
+@import "searchbox.css";
+@import "clipboard.css";
+
+
+
+

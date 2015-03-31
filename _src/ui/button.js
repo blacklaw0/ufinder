@@ -45,6 +45,7 @@ UF.ui.define('button', {
         }
     },
     disabled: function (state) {
+
         if (state === undefined) {
             return this.root().hasClass('ufui-disabled');
         }

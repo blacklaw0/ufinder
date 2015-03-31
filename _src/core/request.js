@@ -14,7 +14,7 @@ var Request = UF.Request = UF.createClass("Request", {
                 me.responseJson = null;
             }
             me.responseText = r;
-            console.log(me.responseJson || r);
+            //console.log(me.responseJson || r);
             me.callback && me.callback(me.responseJson);
         });
     },

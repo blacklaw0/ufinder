@@ -41,9 +41,11 @@ UF.extendClass(Finder, {
 
             //添加模块的快捷键
             if (moduleDeals.shortcutKeys) {
+
                 me.addShortcutKeys(moduleDeals.shortcutKeys);
             }
 
         }
+        this._bindshortcutKeys();
     }
 });

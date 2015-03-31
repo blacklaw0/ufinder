@@ -1,33 +1,67 @@
 UF.ui.define('file', {
-    tpl: '<div class="ufui-file ufui-file-<%=pers%>" data-path="<%=path%>">' +
-    '<div class="ufui-file-icon">' +
+    tpl: '<a draggable="true" title="<%=title%>" dataurl="file/<%=type%>:<%=title%>:<%=link%>" class="ufui-file ufui-file-<%=pers%>" data-path="<%=path%>">' +
+    '<div class="ufui-file-icon" >' +
     '   <i class="ufui-file-icon-<%=type%>"></i>' +
     '   <span class="ufui-file-pers"></span>' +
     '</div>' +
     '<div class="ufui-file-title"><%=title%></div>' +
-    '</div>',
+    '<div class="ufui-file-details"><%=details%></div>' +
+    '</a>',
     defaultOpt: {
         type: '',
         title: '',
         path: '',
+        details: '',
         pers: 'wr'
     },
     init: function (options) {
+        // TODO: 大面积全局变量污染 :-(
         var me = this;
-        me.root($($.parseTmpl(me.tpl, options)));
+        // drag download
+        options['link'] = uf.proxy.getRequestUrl({
+            'cmd': 'download',
+            'target': options['path']
+        });
+        var item = $($.parseTmpl(me.tpl, options));
+        me.root(item);
+        if (options['type'] == 'dir') {
+
+            //item.get(0).addEventListener("dragleave", function(e) {
+            //    //console.log("2");
+            //    item.removeClass("ufui-file-open");
+            //}, false);
+
+            // dragleave 监听失败, 怀疑和webupload dnd冲突
+            item.get(0).addEventListener("dragenter", function (e) {
+                // 剔除其他
+                item.parent().find(".ufui-file").removeClass("ufui-file-open");
+                // 选中当前
+                item.addClass("ufui-file-open");
+            }, false);
+            item.get(0).addEventListener("drop", function (evt) {
+                var dist = $(this).attr("data-path");
+                var moveHandler = function (data) {
+                    uf.execCommand("refresh");
+                };
+
+                uf.proxy.move([dist].concat(uf.getSelection().getSelectedFiles()), moveHandler);
+            }, false);
+        }
         me.root().find('.ufui-file-title').on('focus blur', function (evt) {
 //            console.log(+new Date(), evt.type, evt)
         });
+
         return me;
     },
     editabled: function (state, callback) {
         var me = this,
             $title = this.root().find('.ufui-file-title');
-
         if (state === undefined) {
             return $title.attr('contenteditable');
         } else if (!state) {
             $title.removeClass('ufui-file-title-editable').attr('contenteditable', 'false');
+            console.log("leave edit");
+
             me.renameFlag = false;
         } else {
             if (me.renameFlag) return this;
@@ -46,22 +80,32 @@ UF.ui.define('file', {
                     if (evt.type == 'blur' && !isExit) {
                         return finishHandler(evt);
                     } else if (evt.type == 'keydown') {
-                        if (evt.keyCode == 27) { //Esc取消
+                        if (evt.keyCode == 46) { // delete 冲突(Remove cmd)
+                            //evt.preventDefault();
+                            //return true;
+                        } else if (evt.keyCode == 27) { //Esc取消
                             isExit = true;
+                            //return finishHandler(evt);
                         } else if (evt.keyCode == 13) { //Enter提交
                             return finishHandler(evt);
                         }
                     } else if (evt.type == 'click') {
+                        //console.log($(evt.target).attr("contenteditable") );
+                        //eee = evt;
+                        // 进入编辑状态 & 编辑状态移动 冲突
+                        if ($(evt.target).attr("contenteditable") == 'false') return true;
                         evt.preventDefault();
                         return false;
                     }
                 };
             $title.addClass('ufui-file-title-editable').attr('contenteditable', 'true');
+            console.log("enter edit");
 
             me.renameFlag = true;
             setTimeout(function () {
                 $title.focus();
                 setTimeout(function () {
+                    //$title.on('keydown click blur', renameHandler);
                     $title.on('keydown click blur', renameHandler);
                 }, 100);
             }, 100);

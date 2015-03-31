@@ -7,7 +7,7 @@ UF.registerModule("uploadmodule", function () {
 
             // 创建webupoaler实例
             var uploader = uf.webuploader = WebUploader.create({
-
+                dnd: '.ufui-list-container',
                 // swf文件路径
                 swf: uf.getOption('uploaderSwfUrl'),
 
@@ -30,6 +30,7 @@ UF.registerModule("uploadmodule", function () {
 
             // 当有文件被添加进队列的时候
             uploader.on('fileQueued', function (file) {
+
                 uf.execCommand('upload', file);
             });
 
@@ -51,6 +52,7 @@ UF.registerModule("uploadmodule", function () {
             "upload": {
                 execute: function (file) {
                     if (file) {
+                        aafile = file;
                         uf.proxy.upload(uf.getCurrentPath(), file, function (d) {
                             if (d.state == 0) {
                                 var file = (d && d.data && d.data.file);

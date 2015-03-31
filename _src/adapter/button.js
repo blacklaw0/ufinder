@@ -1,4 +1,4 @@
-UF.registerUI('open pathparent pathbackward pathforward touch mkdir rename remove',
+UF.registerUI('open pathparent pathbackward pathforward touch mkdir rename remove toggleliststyle togglepreview',
     function (name) {
         var me = this;
         var $btn = $.ufuibutton({
@@ -18,4 +18,3 @@ UF.registerUI('open pathparent pathbackward pathforward touch mkdir rename remov
         return $btn;
     }
 );
-

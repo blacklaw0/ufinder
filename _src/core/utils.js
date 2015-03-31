@@ -1,4 +1,43 @@
 var Utils = UFinder.Utils = {
+    /**
+     两个div矩形区域碰撞检测函数，优化后的算法可以检测包含关系，两个参数为jQuery对象
+     */
+    isOverlap: function (objOne, objTwo) {
+        var offsetOne = objOne.offset();
+        var offsetTwo = objTwo.offset();
+        var x1 = offsetOne.left;
+        var y1 = offsetOne.top;
+        var x2 = x1 + objOne.width();
+        var y2 = y1 + objOne.height();
+
+        var x3 = offsetTwo.left;
+        var y3 = offsetTwo.top;
+        var x4 = x3 + objTwo.width();
+        var y4 = y3 + objTwo.height();
+
+        var zx = Math.abs(x1 + x2 - x3 - x4);
+        var x = Math.abs(x1 - x2) + Math.abs(x3 - x4);
+        var zy = Math.abs(y1 + y2 - y3 - y4);
+        var y = Math.abs(y1 - y2) + Math.abs(y3 - y4);
+        return (zx <= x && zy <= y);
+    },
+    dateFormat: function (date, fmt) {
+        var o = {
+            "M+": date.getMonth() + 1,                 //月份
+            "d+": date.getDate(),                    //日
+            "h+": date.getHours(),                   //小时
+            "m+": date.getMinutes(),                 //分
+            "s+": date.getSeconds(),                 //秒
+            "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+            "S": date.getMilliseconds()             //毫秒
+        };
+        if (/(y+)/.test(fmt))
+            fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+            if (new RegExp("(" + k + ")").test(fmt))
+                fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    },
     argsToArray: function (args, index) {
         return Array.prototype.slice.call(args, index || 0);
     },

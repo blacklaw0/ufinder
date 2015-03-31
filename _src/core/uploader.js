@@ -12,7 +12,6 @@ var Uploader = UF.Uploader = UF.createClass("Uploader", {
         var me = this, r,
             handler = function (file) {
                 if (file.id == me.file.id) {
-                    console.log(r);
                     try {
                         me.responseJson = JSON ? JSON.parse(r) : eval(r);
                     } catch (e) {

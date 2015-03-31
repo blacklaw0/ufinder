@@ -1,8 +1,9 @@
-﻿.ufui-tree{
+.ufui-tree{
     position: relative;
+    z-index: 10;
     float: left;
     width: 20%;
-    height: 500px;
+    height: 100%;
     overflow: auto;
     background-color: #f7f7f7;
 }

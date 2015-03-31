@@ -4,8 +4,7 @@ UF.registerModule("addfilemodule", function () {
         "init": function () {
 
         },
-        "defaultOptions": {
-        },
+        "defaultOptions": {},
         "commands": {
             "touch": {
                 execute: function (name) {
@@ -67,7 +66,6 @@ UF.registerModule("addfilemodule", function () {
         "shortcutKeys": {
             "touch": "ctrl+78" //newfile ctrl+N
         },
-        "events": {
-        }
+        "events": {}
     };
 });

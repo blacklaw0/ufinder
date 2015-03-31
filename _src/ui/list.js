@@ -1,6 +1,6 @@
 UF.ui.define('list', {
     tpl: '<div class="ufui-list">' +
-    '<div class="ufui-list-container"></div>' +
+    '<div class="ufui-list-container"></div><div class="ufui-select-box" style="display:none;"></div>' +
     '</div>',
     defaultOpt: {
         sort: 'title'
@@ -10,7 +10,6 @@ UF.ui.define('list', {
 
         me.root($($.parseTmpl(me.tpl, options))).append(me.$list);
         me.$list = me.root().find('.ufui-list-container');
-
         me._ufItems = [];
 
         return me;

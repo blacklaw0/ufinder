@@ -1,5 +1,12 @@
+html,body{
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
 .ufui-container{
-    width: 700px;
+    height: 600px;
+    width: 1000px;
+    margin: auto;
     overflow: hidden;
     position: relative;
     border: 1px solid #d4d4d4;
@@ -7,7 +14,10 @@
     box-shadow: 1px 1px 1px #d3d6da;
     background-color: #fff;
 }
+
+
 .ufui-container .ufui-toolbar{
+    z-index: 10;
     position: relative;
     width:auto;
     border-bottom: 1px solid #e1e1e1;
@@ -17,4 +27,8 @@
 .ufui-toolbar .ufui-btn-toolbar{
     position: relative;
     padding: 5px;
+}
+
+.ufui-list-container.hover {
+    border: 2px dashed #555
 }

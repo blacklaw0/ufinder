@@ -4,8 +4,7 @@ UF.registerModule("selectmodule", function () {
         "init": function () {
 
         },
-        "defaultOptions": {
-        },
+        "defaultOptions": {},
         "commands": {
             "selectall": {
                 execute: function (name) {
@@ -17,6 +16,13 @@ UF.registerModule("selectmodule", function () {
                         paths.push(v.path);
                     });
                     uf.fire('selectfiles', paths);
+                },
+                queryState: function () {
+                }
+            },
+            "selectfile": {
+                execute: function (path) {
+                    uf.fire('selectfiles', path);
                 },
                 queryState: function () {
                 }
@@ -35,7 +41,7 @@ UF.registerModule("selectmodule", function () {
             }
         },
         "shortcutKeys": {
-//            "selectall": "ctrl+65", //selectAll ctrl+A
+            "selectall": "ctrl+65"//selectAll ctrl+A
 //            "selectup": "37", //selectAll ctrl+up
 //            "selectprevious": "38", //selectAll ctrl+left
 //            "selectnext": "39", //selectAll ctrl+right

@@ -15,6 +15,7 @@ UF.registerUI('list',
                         ufList.addItem({
                             type: file.type == 'dir' ? 'dir' : type,
                             title: file.name,
+                            details: Utils.dateFormat(new Date(file.time * 1000), "yyyy-MM-dd hh:mm:ss"),
                             path: file.path,
                             pers: (file.write ? 'w' : 'nw') + (file.read ? 'r' : 'nr')
                         });
@@ -40,7 +41,19 @@ UF.registerUI('list',
                 $list.find('.ufui-file').not($except).each(function () {
                     $(this).ufui().active(false);
                 });
-            };
+            },
+            checkAllSelectedFiles = function ($except) {
+                $list.find('.ufui-file').not($except).each(function () {
+                    $(this).ufui().active(true);
+                });
+            },
+            preview = function (target) {
+                // TODO: 全局终止预览
+                if (typeof(clearPreview) != "undefined") clearPreview();
+                me.$preview.find("b").html(target);
+                uf.execCommand('preview', target);
+            }
+            ;
 
         /* 双击文件 */
         $list.delegate('.ufui-file', 'dblclick', function (e) {
@@ -63,9 +76,26 @@ UF.registerUI('list',
             }
         });
 
-        /* 点击选文件 */
-        $list.delegate('.ufui-file', 'click', function (e) {
+        /* 双击文件名 */
+        $list.delegate('.ufui-file-title', 'dblclick', function (e) {
+            me.execCommand("rename");
+            return false;
+        });
 
+        //$list.delegate('.ufui-file-title', 'click', function (e) {
+        //    return;
+        //});
+
+        /* 拖动文件 */
+        $list.delegate('.ufui-file', 'dragstart', function (e) {
+            //ufList.setCurrentDrag(this);
+            e.originalEvent.dataTransfer.setData("DownloadURL", $(e.target).attr("dataurl"));
+        });
+
+        // 事件顺序 mousedown -> dragstart -> mouseup
+        /* 点击选文件 */
+        $list.delegate('.ufui-file', 'mousedown', function (e) {
+            //$list.delegate('.ufui-file', 'click', function (e) {
             /* 解决双击单个文件时,不选中问题 */
             if (singleClickTimer && singleClickTarget == e.target && !(e.shiftKey || e.ctrlKey || e.metaKey)) {
                 return;
@@ -99,14 +129,15 @@ UF.registerUI('list',
                     $current = $current.next();
                     if ($current.index() > endIndex) break;
                 }
-                updateSelection();
+                //updateSelection();
             } else if (e.ctrlKey || e.metaKey) {
                 /* 按住ctrl,直点击文件 */
                 ufFile.active(!state);
 
                 !state && ($preCliskFile = $file);
-                updateSelection();
-            } else {
+                //updateSelection();
+                // 按钮已激活, 则动作忽略
+            } else if (state == false) {
 
                 /* 直接点击文件 */
                 if ((!state && getPathsFormView().length > 0) || (state && getPathsFormView().length > 1)) {
@@ -117,18 +148,79 @@ UF.registerUI('list',
                 }
 
                 ufFile.active() && ($preCliskFile = $file);
-                updateSelection();
+                /* 预览文件 */
+                preview($file.attr('data-path'));
             }
+            updateSelection();
         });
 
         /* 去除选区 */
-        $list.on('click', function (e) {
-            var target = e.target || e.srcElement;
-            if (target && target == $list.children()[0]) {
-                clearAllSelectedFiles();
-                updateSelection();
+        //$list.on('click', function (e) {
+        //    var target = e.target || e.srcElement;
+        //    if (target && target == $list.children()[0]) {
+        //        //clearAllSelectedFiles();
+        //        updateSelection();
+        //    }
+        //});
+        /* 绘制选择框 */
+        var origin, pos1, pos2;
+        $list.on('mousedown', function (e) {
+            var selectbox = $list.find(".ufui-select-box");
+            // trigger event
+            if (!e.originalEvent) return;
+            if (e.type == "mousedown") {
+                if (!$(e.originalEvent.srcElement).hasClass("ufui-list-container")) return;
+                if (!(e.ctrlKey || e.shiftKey)) {
+                    clearAllSelectedFiles();
+                    updateSelection();
+                }
+                selectbox.show();
+                origin = {x: e.offsetX - e.pageX, y: e.offsetY - e.pageY};
+                pos1 = {x: e.pageX, y: e.pageY};
             }
         });
+
+        $(document).on('mouseup mousemove', function (e) {
+            var selectbox = $list.find(".ufui-select-box");
+            if (e.type == "mousemove") {
+                if (!origin) return;
+                pos2 = {x: e.pageX, y: e.pageY};
+                xs = pos1.x > pos2.x ? [pos2.x, pos1.x] : [pos1.x, pos2.x], ys = pos1.y > pos2.y ? [pos2.y, pos1.y] : [pos1.y, pos2.y];
+                var left = xs[0], top = ys[0], width = xs[1] - xs[0], height = ys[1] - ys[0];
+                selectbox.css({
+                    top: top + origin.y,
+                    left: left + origin.x,
+                    width: width,
+                    height: height
+                });
+                var overcount = 0;
+                $list.find(".ufui-file").each(function (i, k) {
+                    var ufFile = $(k).ufui();
+                    var state = me.getSelection().getSelectedFiles().indexOf(ufFile.getPath()) != -1;
+                    if (Utils.isOverlap($(k), selectbox)) {
+                        overcount++;
+                        state = !state;
+                    }
+                    ufFile.active(state);
+                });
+            } else {
+                updateSelection();
+                selectbox.css({width: 0, height: 0, left: -2000, top: -2000});
+                selectbox.hide();
+                origin = null;
+            }
+        });
+
+        /* 快速检索快捷键 */
+        me.on("searchindex", function (e) {
+            me.$toolbar.find(".searchbox input").focus();
+        });
+
+        /* 全选 selectall */
+        //me.on('checkall', function (e) {
+        //    checkAllSelectedFiles();
+        //    updateSelection();
+        //});
 
         /* 目录改变 */
         me.on('currentPathChange', function (type, path) {
@@ -154,7 +246,9 @@ UF.registerUI('list',
         /* 删除文件 */
         me.on('removeFiles', function (type, paths) {
             $.each($.isArray(paths) ? paths : [paths], function (i, path) {
-                ufList.isItemInList(path) && ufList.removeItem(path, 300);
+                // 刷新时动画效果不好
+                ufList.isItemInList(path) && ufList.removeItem(path, 0);
+                ufList.isItemInList(path) && ufList.removeItem(path, 0);
             });
         });
 
@@ -164,8 +258,12 @@ UF.registerUI('list',
             $.each($.isArray(paths) ? paths : [paths], function (i, path) {
                 var ufFile = ufList.getItem(path);
                 if (ufFile) {
-                    ufFile.active(true);
-
+                    if (!$.isArray(paths)) {
+                        // 单个文件模拟点击事件, mousedown 自带激活
+                        ufFile.trigger("mousedown");
+                    } else {
+                        ufFile.active(true);
+                    }
                     /* 滚动到选中文件 */
 //                    var $c = $list.find('.ufui-list-container').scrollTop(ufFile.root().offset().top - 3);
                 }

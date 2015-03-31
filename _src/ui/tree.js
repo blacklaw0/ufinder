@@ -1,9 +1,8 @@
 UF.ui.define('tree', {
-    tpl: '<div class="ufui-tree">' +
+    tpl: '<div class="ufui-tree"  >' +
     '<ul class="ufui-tree-branch ufui-tree-branch-root"></ul>' +
     '</div>',
-    defaultOpt: {
-    },
+    defaultOpt: {},
     init: function (options) {
         var me = this;
 
