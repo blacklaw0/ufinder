@@ -19,6 +19,13 @@
 .ufui-btn-toolbar .ufui-btn .ufui-icon-remove {
     background-position: -120px 0;
 }
+.ufui-btn-toolbar .ufui-btn .ufui-icon-toggleliststyle {
+    background-position: -202px 0;
+}
+.ufui-btn-toolbar .ufui-btn .ufui-icon-togglepreview {
+    background-position: -223px 0;
+}
+
 .ufui-btn-toolbar .ufui-btn .ufui-icon-upload{
     background-position: -140px 0;
 }

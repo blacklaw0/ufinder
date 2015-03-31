@@ -2134,7 +2134,6 @@
          * @param {Lib.File} source [lib.File](#Lib.File)实例, 此source对象是带有Runtime信息的。
          */
         function WUFile( source ) {
-    
             /**
              * 文件名，包括扩展名（后缀）
              * @property name
@@ -2569,7 +2568,7 @@
     
             _addFile: function( file ) {
                 var me = this;
-    
+
                 if ( !file || file.size < 6 || me.accept &&
     
                         // 如果名字中有后缀，才做后缀白名单处理。
@@ -2580,7 +2579,6 @@
                 if ( !(file instanceof WUFile) ) {
                     file = new WUFile( file );
                 }
-    
                 if ( !me.owner.trigger( 'beforeFileQueued', file ) ) {
                     return;
                 }
@@ -2823,7 +2821,6 @@
                 me.connectRuntime( blob.ruid, function() {
                     me.exec('init');
                 });
-    
                 me._blob = blob;
                 opts.fileVar = key || opts.fileVar;
                 opts.filename = filename || opts.filename;
@@ -3196,12 +3193,13 @@
     
                     fn = function( val ) {
                         me._promise = null;
-    
                         // 有可能是reject过来的，所以要检测val的类型。
                         val && val.file && me._startSend( val );
                         Base.nextTick( me.__tick );
                     };
-    
+
+                    //console.log(val);
+
                     me._promise = isPromise( val ) ? val.always( fn ) : fn( val );
     
                 // 没有要上传的了，且没有正在传输的了。
@@ -3410,7 +3408,6 @@
                     tr = new Transport( opts ),
                     data = $.extend({}, opts.formData ),
                     headers = $.extend({}, opts.headers );
-    
                 block.transport = tr;
     
                 tr.on( 'destroy', function() {
@@ -3958,12 +3955,15 @@
                 dataTransfer = e.dataTransfer;
                 items = dataTransfer.items;
                 files = dataTransfer.files;
-    
+
                 canAccessFolder = !!(items && items[ 0 ].webkitGetAsEntry);
     
                 for ( i = 0, len = files.length; i < len; i++ ) {
                     file = files[ i ];
-                    if ( file.type ) {
+                    /**
+                     * TODO: 未知文件类型允许被错误判断为文件夹, 全部默认为文件, 文件夹上传失败
+                     */
+                    if ( true || file.type ) {
                         results.push( file );
                     } else if ( !file.type && canAccessFolder ) {
                         promises.push( this._traverseDirectoryTree(
@@ -5060,13 +5060,15 @@
             },
     
             send: function() {
+                origin = this.owner;
+                oo = this.owner;
                 var owner = this.owner,
                     opts = this.options,
                     xhr = this._initAjax(),
                     blob = owner._blob,
                     server = opts.server,
                     formData, binary;
-    
+                //console.log("send as binary: " + opts.sendAsBinary);
                 if ( opts.sendAsBinary ) {
                     server += (/\?/.test( server ) ? '&' : '?') +
                             $.param( owner._formData );
@@ -5077,7 +5079,8 @@
                     $.each( owner._formData, function( k, v ) {
                         formData.append( k, v );
                     });
-    
+                    bbbb = blob;
+                    oooo = opts;
                     formData.append( opts.fileVar, blob.getSource(),
                             opts.filename || owner._formData.name || '' );
                 }

@@ -9,6 +9,12 @@ UFinder.LANG['zh-cn'] = {
         'lookimage': '图片预览',
         'lookcode': '查看文本文件'
     },
+    'warning':{
+        'removebefore':'确认删除, 该操作不可恢复!'
+    },
+    'hint': {
+      'search':"快速检索"
+    },
     'lookimage': {
 
     },

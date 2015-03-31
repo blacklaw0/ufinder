@@ -1,9 +1,22 @@
 .ufui-list{
     position: relative;
-    float: right;
-    width: 80%;
-    height: 500px;
+    float: left;
+    width: 60%;
+    height: 563px;
 }
+
+.ufui-container.middleview .ufui-list {
+    width: 80%;
+}
+
+.ufui-list .ufui-select-box{
+    border-radius: 5px;
+    position: absolute;
+    background: #528CE0;
+    opacity: 0.2;
+    border: 3px dashed #22c;
+}
+
 .ufui-list-container{
     height: 100%;
     border-left: 1px solid #eeeeee;
@@ -25,3 +38,78 @@
     width: 80px;
     height: 80px;
 }
+.ufui-list-container .ufui-file-details{
+    display: none;
+}
+.ufui-list-container .ufui-file-title{
+    cursor: text;
+}
+
+
+
+.ufui-list-container.list-style > *{
+    transition-property:  top, left, margin, height,width,  background;
+    transition-duration:  0.5s, 0.5s, 0.5s, 0.5s, 0.5s, 0.5s;
+}
+.ufui-list-container > *{
+    transition-property:  top, left, margin, height,width,  background;
+    transition-duration:  0.5s, 0.5s, 0.5s, 0.5s, 0.5s, 0.5s;
+}
+.ufui-list-container.list-style li{
+    margin: 5px;
+    padding: 5px;
+    list-style: none;
+    border: 1px dotted #eeeeee;
+
+}
+
+.ufui-list-container.list-style .ufui-file-icon{
+    float: left;
+}
+
+.ufui-list-container.list-style .ufui-file-title{
+    float: left;
+    text-align: left;
+    width: 140px;
+    margin-right: 100px;
+    margin-top: 10px;
+    line-height: 20px;
+    height: 20px;
+    font-size: 18px;
+}
+.ufui-list-container.list-style .ufui-file-details{
+    display:block;
+    float:left;
+    text-align: left;
+    width: 240px;
+    margin-top: 10px;
+    line-height: 20px;
+    height: 20px;
+    font-size: 18px;
+}
+
+.ufui-list-container.list-style a{
+    border-bottom:1px solid #ddd;
+    width: 100%;
+    height: 40px;
+    padding: 0px;
+    margin: 0px;
+
+}
+.ufui-list-container.list-style a.ufui-active{
+    border: 0px !important;
+    border-bottom:1px solid #ddd;
+    background: #eee;
+}
+
+.ufui-list-container.list-style i{
+    margin: -15px 0px 0px -10px !important;
+    transform: scale(0.5);
+
+}
+/*.ufui-list-container,.list-style .ufui-list-item {*/
+    /*display: block;*/
+    /*float: left;*/
+    /*width: 80px;*/
+    /*height: 80px;*/
+/*}*/
