@@ -54,7 +54,8 @@ module.exports = function (grunt) {
                     }
                 },
                 src: getPath( buildPath, srcDir ),
-                dest: distDir + 'ufinder.js'
+                //dest: distDir + 'ufinder.js'
+                dest: 'ufinder.js'
             }
 
         },
@@ -64,6 +65,7 @@ module.exports = function (grunt) {
                 files: (function (){
                     var o = {};
                     o[distDir + 'ufinder.min.js'] = distDir + 'ufinder.js';
+                    o[ 'ufinder.min.js'] = 'ufinder.js';
                     return o;
                 })()
             }
@@ -73,7 +75,7 @@ module.exports = function (grunt) {
             base: {
                 files: [
                     {
-                        src: ["server/**", 'dialogs/**', 'lang/**', 'lib/**', 'server/**', 'themes/**'],
+                        src: [ 'dialogs/**', 'lang/**', 'lib/**', 'server/**', 'themes/**'],
                         dest: distDir
                     }
                 ]

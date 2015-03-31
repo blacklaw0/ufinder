@@ -70,6 +70,7 @@
                     'ui/search.js',
                     'ui/preview.js',
                     'ui/clipboard.js',
+                    'ui/searchbox.js',
                     'adapter/adapter.js',
                     'adapter/button.js',
                     'adapter/list.js',
@@ -80,6 +81,7 @@
                      // +
                     'adapter/preview.js',
                     'adapter/clipboard.js',
+                    'adapter/searchbox.js'
                 ],
                 baseURL = '_src/';
         for (var i = 0, pi; pi = filelist[i++];) {
@@ -87,7 +89,8 @@
         }
 
         $(function () {
-            window.uf = UF.getUFinder('container');
+//            window.uf = UF.getUFinder('container');
+            window.ufs = UF.getUFinder('container');
         });
     })()
 </script>

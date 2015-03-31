@@ -1,5 +1,5 @@
 UF.ui.define('file', {
-    tpl: '<a draggable="true" title="<%=title%>" dataurl="file/<%=type%>:<%=title%>:<%=link%>" class="ufui-file ufui-file-<%=pers%>" data-path="<%=path%>">' +
+    tpl: '<a draggable="true" filetype="<%=type%>" title="<%=title%>" dataurl="file/<%=type%>:<%=title%>:<%=link%>" class="ufui-file ufui-file-<%=pers%>" data-path="<%=path%>">' +
     '<div class="ufui-file-icon" >' +
     '   <i class="ufui-file-icon-<%=type%>"></i>' +
     '   <span class="ufui-file-pers"></span>' +
@@ -12,41 +12,13 @@ UF.ui.define('file', {
         title: '',
         path: '',
         details: '',
-        pers: 'wr'
+        pers: 'wr',
+        link: ''
     },
     init: function (options) {
-        // TODO: 大面积全局变量污染 :-(
         var me = this;
-        // drag download
-        options['link'] = uf.proxy.getRequestUrl({
-            'cmd': 'download',
-            'target': options['path']
-        });
         var item = $($.parseTmpl(me.tpl, options));
         me.root(item);
-        if (options['type'] == 'dir') {
-
-            //item.get(0).addEventListener("dragleave", function(e) {
-            //    //console.log("2");
-            //    item.removeClass("ufui-file-open");
-            //}, false);
-
-            // dragleave 监听失败, 怀疑和webupload dnd冲突
-            item.get(0).addEventListener("dragenter", function (e) {
-                // 剔除其他
-                item.parent().find(".ufui-file").removeClass("ufui-file-open");
-                // 选中当前
-                item.addClass("ufui-file-open");
-            }, false);
-            item.get(0).addEventListener("drop", function (evt) {
-                var dist = $(this).attr("data-path");
-                var moveHandler = function (data) {
-                    uf.execCommand("refresh");
-                };
-
-                uf.proxy.move([dist].concat(uf.getSelection().getSelectedFiles()), moveHandler);
-            }, false);
-        }
         me.root().find('.ufui-file-title').on('focus blur', function (evt) {
 //            console.log(+new Date(), evt.type, evt)
         });

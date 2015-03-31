@@ -8,12 +8,7 @@ UF.ui.define('preview', {
     },
     init: function (options) {
         var me = this;
-
-        me.root($($.parseTmpl(me.tpl, options))).append(me.$list);
-        me.$list = me.root().find('.ufui-list-container');
-
-        me._ufItems = [];
-
+        me.root($($.parseTmpl(me.tpl, options)));
         return me;
     },
     _compare: function (a, b) {

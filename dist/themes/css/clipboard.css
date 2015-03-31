@@ -31,11 +31,20 @@
     /*background: #eee;*/
     right: 20px;
 }
-.ufui-clipboard .clipboard-clear:hover{
+.clipboard-clear:hover{
     /*background: #fee;*/
     border: 2px solid #555;
     border-radius: 2px;
 
+}
+.ufui-clipboard .clipboard-clear,
+.ufui-clipboard.filled .clipboard-clear{
+    display: none;
+}
+
+.ufui-clipboard:hover .clipboard-clear,
+.ufui-clipboard.filled .clipboard-clear{
+    display: block;
 }
 .ufui-clipboard:hover,
 .ufui-clipboard.filled{

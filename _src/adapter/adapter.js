@@ -18,20 +18,9 @@ $.extend(UFinder, (function () {
         },
         _createToolbar: function (uf) {
             var toolbars = uf.getOption('toolbars');
-            // TODO: namespace stain, toolbar 改 registerUI
-            var $toolbar = $.ufuitoolbar({"placeholder": uf.getLang('hint')['search']});
-            // mousedown -> input blur -> mouseup -> finish click
-            $toolbar.delegate(".searchbox .search-ul li", "mousedown", function (e) {
-                var p = e.target.tagName == "LI" ? $(e.target) : $(e.target).parents("li");
-                var dir = p.attr("data-path");
-                var file = p.attr("filename");
-                uf.execCommand("open", dir);
 
-                setTimeout(function () {
-                    uf.execCommand("selectfile", dir + file);
-                    uf.setFocus();
-                }, 500);
-            });
+            var $toolbar = $.ufuitoolbar();
+
 
             uf.$container.append($toolbar);
             uf.$toolbar = $toolbar;
@@ -54,6 +43,12 @@ $.extend(UFinder, (function () {
                 });
             }
             $toolbar.append($('<div class="ufui-dialog-container"></div>'));
+        },
+        _createSearchbox: function (uf) {
+            var $searchbox = _ufinderUI['searchbox'].call(uf, 'list');
+            uf.$toolbar.append($searchbox);
+            uf.$searchbox = $searchbox;
+
         },
         _createtree: function (uf) {
             var $tree = _ufinderUI['tree'].call(uf, 'list');
@@ -122,6 +117,7 @@ $.extend(UFinder, (function () {
             });
 
             this._createToolbar(uf);
+            this._createSearchbox(uf);
             this._createtree(uf);
             this._createlist(uf);
             this._createpreview(uf);

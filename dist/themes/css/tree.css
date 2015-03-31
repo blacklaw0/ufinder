@@ -1,6 +1,6 @@
-.ufui-tree{
+﻿.ufui-tree{
     position: relative;
-    z-index: 10;
+    z-index: 1;
     float: left;
     width: 20%;
     height: 100%;

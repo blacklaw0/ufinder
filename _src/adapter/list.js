@@ -17,7 +17,11 @@ UF.registerUI('list',
                             title: file.name,
                             details: Utils.dateFormat(new Date(file.time * 1000), "yyyy-MM-dd hh:mm:ss"),
                             path: file.path,
-                            pers: (file.write ? 'w' : 'nw') + (file.read ? 'r' : 'nr')
+                            pers: (file.write ? 'w' : 'nw') + (file.read ? 'r' : 'nr'),
+                            link: me.proxy.getRequestUrl({
+                                'cmd': 'download',
+                                'target': file.path
+                            })
                         });
 
                         if (Utils.isImagePath(file.path)) {
@@ -50,10 +54,8 @@ UF.registerUI('list',
             preview = function (target) {
                 // TODO: 全局终止预览
                 if (typeof(clearPreview) != "undefined") clearPreview();
-                me.$preview.find("b").html(target);
-                uf.execCommand('preview', target);
-            }
-            ;
+                me.execCommand('preview', target);
+            };
 
         /* 双击文件 */
         $list.delegate('.ufui-file', 'dblclick', function (e) {
@@ -76,6 +78,8 @@ UF.registerUI('list',
             }
         });
 
+
+
         /* 双击文件名 */
         $list.delegate('.ufui-file-title', 'dblclick', function (e) {
             me.execCommand("rename");
@@ -90,6 +94,23 @@ UF.registerUI('list',
         $list.delegate('.ufui-file', 'dragstart', function (e) {
             //ufList.setCurrentDrag(this);
             e.originalEvent.dataTransfer.setData("DownloadURL", $(e.target).attr("dataurl"));
+        });
+
+        /* 文件夹拖入事件 */
+        $list.delegate('.ufui-file[filetype=dir]', 'dragenter', function (e) {
+            // 剔除其他
+            $(this).parent().find(".ufui-file").removeClass("ufui-file-open");
+            // 选中当前
+            $(this).addClass("ufui-file-open");
+        });
+
+        /* 文件夹文件进入事件 */
+        $list.delegate('.ufui-file[filetype=dir]', 'drop', function (e) {
+            var dist = $(this).attr("data-path");
+            var moveHandler = function (data) {
+                me.execCommand("refresh");
+            };
+            me.proxy.move([dist].concat(me.getSelection().getSelectedFiles()), moveHandler);
         });
 
         // 事件顺序 mousedown -> dragstart -> mouseup
