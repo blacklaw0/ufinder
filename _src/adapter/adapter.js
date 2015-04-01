@@ -71,6 +71,40 @@ $.extend(UFinder, (function () {
             uf.$list.append($clipboard);
             uf.$clipboard = $clipboard;
         },
+        _createContextmenu: function (uf) {
+            /* 文件菜单 */
+            $.contextMenu({
+                selector: '.ufui-list-container .ufui-file',
+                callback: function(key, options) {
+                    uf.execCommand(options.items[key]['cmd']);
+                },
+                items: {
+                    "edit": {name: uf.getLang('menu')['edit'], icon: "edit", cmd: 'edit'},
+                    "cut": {name: uf.getLang('menu')['cut'], icon: "cut", cmd: 'cut'},
+                    "copy": {name: uf.getLang('menu')['copy'], icon: "copy", cmd: 'copy'},
+                    //"move": {name: uf.getLang('menu')['move'], icon: "move", cmd: 'move'},
+
+                    "rename": {name: uf.getLang('menu')['rename'], icon: "rename", cmd: 'rename'},
+                    "delete": {name: uf.getLang('menu')['remove'], icon: "remove", cmd: 'remove'}
+                }
+            });
+            /* 容器菜单 */
+            $.contextMenu({
+                selector: '.ufui-list-container',
+                callback: function(key, options) {
+                    uf.execCommand(options.items[key]['cmd']);
+                },
+                items: {
+                    "edit": {name: uf.getLang('menu')['pathparent'], icon: "pathparent", cmd: 'pathparent'},
+                    "checkall": {name: uf.getLang('menu')['selectall'], icon: "selectall", cmd: 'selectall'},
+                    "paste": {name: uf.getLang('menu')['paste'], icon: "paste", cmd: 'paste'},
+                    "refresh": {name: uf.getLang('menu')['refresh'], icon: "refresh", cmd: 'refresh'},
+                    "touch": {name: uf.getLang('menu')['touch'], icon: "touch", cmd: 'touch'},
+                    "mkdir": {name: uf.getLang('menu')['mkdir'], icon: "mkdir", cmd: 'mkdir'}
+
+                }
+            });
+        },
         _createMessageHolder: function (uf) {
             var $messageHolder = $('<div class="ufui-message-list"></div>');
             uf.$container.append($messageHolder);
@@ -123,6 +157,7 @@ $.extend(UFinder, (function () {
             this._createpreview(uf);
             this._createclipboard(uf);
             this._createMessageHolder(uf);
+            this._createContextmenu(uf);
 
             uf._initDomEvent();
             uf.fire('ready');

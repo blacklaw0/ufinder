@@ -1,7 +1,7 @@
 /* 预览窗口 */
 UF.ui.define('preview', {
     tpl: '<div class="ufui-preview">' +
-    '<div class="ufui-preview-container"><center style="margin-top:50%;"><div class="display"><b>暂无预览</b></div></center></div>' +
+    '<div class="ufui-preview-container"><center style="margin-tops:50%;"><div class="display"><div style="margin-top:140px"><b>暂无预览</b></div></div></center></div>' +
     '</div>',
     defaultOpt: {
         sort: 'title'

@@ -71,6 +71,7 @@
                     'ui/preview.js',
                     'ui/clipboard.js',
                     'ui/searchbox.js',
+                    'ui/jquery.contextMenu.js',
                     'adapter/adapter.js',
                     'adapter/button.js',
                     'adapter/list.js',
@@ -80,18 +81,35 @@
                     'adapter/dialog.js',
                      // +
                     'adapter/preview.js',
+                    'adapter/searchbox.js',
                     'adapter/clipboard.js',
-                    'adapter/searchbox.js'
                 ],
                 baseURL = '_src/';
         for (var i = 0, pi; pi = filelist[i++];) {
             document.write('<script type="text/javascript" src="' + baseURL + pi + '"><\/script>');
         }
 
+
         $(function () {
 //            window.uf = UF.getUFinder('container');
             window.ufs = UF.getUFinder('container');
+
         });
+
+        // file drag hover
+//        function FileDragHover(e) {
+//            e.stopPropagation();
+//            e.preventDefault();
+//            eee = e;
+//            var l = $(".ufui-list-container");
+//            e.type == "dragover" ? l.addClass("hover") : l.removeClass("hover");
+//        }
+//        setTimeout(function() {
+//            var list = $(".ufui-list-container")[0];
+//            list.addEventListener("dragover", FileDragHover, false);
+//            list.addEventListener("dragleave", FileDragHover, false);
+////        list.addEventListener("drop", FileSelectHandler, false);
+//        }, 500);
     })()
 </script>
 <script src="lang/zh-cn/zh-cn.js"></script>

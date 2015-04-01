@@ -96,6 +96,17 @@ UF.registerUI('list',
             e.originalEvent.dataTransfer.setData("DownloadURL", $(e.target).attr("dataurl"));
         });
 
+        /* 拖放文件, 接收 */
+        var listcontainer = $list.find(".ufui-list-container");
+        lcFileDragHover = function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            e.type == "dragover" ? listcontainer.addClass("hover") : listcontainer.removeClass("hover");
+        }
+        //listcontainer[0].addEventListener("dragover", lcFileDragHover, false);
+        //listcontainer[0].addEventListener("dragleave", lcFileDragHover, false);
+        //listcontainer[0].addEventListener("drop", lcFileDragHover, false);
+
         /* 文件夹拖入事件 */
         $list.delegate('.ufui-file[filetype=dir]', 'dragenter', function (e) {
             // 剔除其他

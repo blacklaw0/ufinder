@@ -10,135 +10,15 @@
 <div id="container"></div>
 <script src="ufinder.config.js"></script>
 <script src="ufinder.js"></script>
-<script src="lib/contextMenu/jquery.contextMenu.js"></script>
+<!--<script src="lib/contextMenu/jquery.contextMenu.js"></script>-->
 <script src="lang/zh-cn/zh-cn.js"></script>
 <script>
     $(function () {
         window.uf = UF.getUFinder('container');
 
-
-        // file drag hover
-        function FileDragHover(e) {
-            e.stopPropagation();
-            e.preventDefault();
-            eee = e;
-            var l = $(".ufui-list-container");
-            e.type == "dragover" ? l.addClass("hover") : l.removeClass("hover");
-        }
-        // output file information
-        function ParseFile(file) {
-
-            console.log(
-                    "<p>File information: <strong>" + file.name +
-                    "</strong> type: <strong>" + file.type +
-                    "</strong> size: <strong>" + file.size +
-                    "</strong> bytes</p>"
-            );
-
-        }
-
-        // file selection
-        function FileSelectHandler(e) {
-            eef = e;
-            console.log($(eef.srcElement).hasClass("webuploader-dnd-over"));
-            // cancel event and hover styling
-            FileDragHover(e);
-            // fetch FileList object
-//            var files = e.target.files || e.dataTransfer.files;
-//            console.log(files);
-//            // process all File objects
-//            for (var i = 0, f; f = files[i]; i++) {
-//                ff = new WebUploader.File(f);
-////                uf.execCommand("upload", ff);
-//                uf.webuploader.addFile(ff);
-//                bbfile = f;
-//
-////                uf.webuploader.addfile(f);
-//                ParseFile(f);
-//            }
-
-        }
-
-        var list = $(".ufui-list-container")[0];
-        list.addEventListener("dragover", FileDragHover, false);
-        list.addEventListener("dragleave", FileDragHover, false);
-        list.addEventListener("drop", FileSelectHandler, false);
-
-        function treeDragHandler(e) {
-//            console.log(e.type);
-//            e.dataTransfer.setData("DownloadURL", ees.dataurl);
-//            eee = e;
-//            e.stopPropagation();
-            e.preventDefault();
-//            var l = $(".ufui-list-container");
-//            e.type == "dragover" ? l.addClass("hover") : l.removeClass("hover");
-        }
-
-        var d = $(".ufui-tree")[0];
-        d.addEventListener("dragstart", treeDragHandler, false);
-        d.addEventListener("dragenter", treeDragHandler, false);
-        d.addEventListener("dragover", treeDragHandler, false);
-        d.addEventListener("dragleave", treeDragHandler, false);
-        d.addEventListener("drop", treeDragHandler, false);
-
-
     });
 
-    $(function(){
-        /* 文件菜单 */
-        $.contextMenu({
-            selector: '.ufui-list-container .ufui-file',
-            callback: function(key, options) {
-//                var m = "clicked: " + key;
-                uf.execCommand(options.items[key]['cmd']);
-//                window.console && console.log(m) || alert(m);
-            },
-            items: {
-                "edit": {name: "Edit", icon: "edit", cmd: 'edit'},
-                "cut": {name: "Cut", icon: "cut", cmd: 'cut'},
-                "copy": {name: "Copy", icon: "copy", cmd: 'copy'},
-                "move": {name: "Move", icon: "delete", cmd: 'move'},
 
-                "rename": {name: "Rename", icon: "paste", cmd: 'rename'},
-                "delete": {name: "Delete", icon: "delete", cmd: 'remove'}
-            }
-        });
-        /* 容器菜单 */
-        $.contextMenu({
-            selector: '.ufui-list-container',
-            callback: function(key, options) {
-//                var m = "clicked: " + key;
-                uf.execCommand(options.items[key]['cmd']);
-//                window.console && console.log(m) || alert(m);
-            },
-            items: {
-                "edit": {name: "Parent", icon: "edit", cmd: 'pathparent'},
-                "checkall": {name: "CheckAll", icon: "edit", cmd: 'selectall'},
-                "paste": {name: "Paste", icon: "paste", cmd: 'paste'},
-                "refresh": {name: "Refresh", icon: "edit", cmd: 'refresh'},
-                "cut": {name: "Touch", icon: "cut", cmd: 'touch'},
-                "copy": {name: "Mkdir", icon: "copy", cmd: 'mkdir'}
-
-            }
-        });
-        setTimeout(function(){
-            $('.ufui-file').mousedown(function(e){
-                if (e.which == 3) {
-                    $(this).trigger("click");
-
-                }
-                return true;//阻止链接跳转
-            });}, 500);
-
-
-    });
-    $(function() {
-        $("#jiangyou").click(function(){
-//            console.log("jiangyou");
-//            $(".searchbox input").focus();
-        });
-    });
 </script>
-<!--<button id="jiangyou">jiangyou</button>-->
 </body>
 </html>

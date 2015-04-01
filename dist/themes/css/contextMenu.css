@@ -18,15 +18,15 @@
 .context-menu-list {
     margin:0; 
     padding:0;
-    
+
     min-width: 120px;
     max-width: 250px;
     display: inline-block;
     position: absolute;
     list-style-type: none;
-    
+    border-radius: 5px;
     border: 1px solid #DDD;
-    background: #EEE;
+    background: #fff;
     
     -webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
        -moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
@@ -40,7 +40,7 @@
 
 .context-menu-item {
     padding: 2px 2px 2px 24px;
-    background-color: #EEE;
+    /*background-color: #EEE;*/
     position: relative;
     -webkit-user-select: none;
        -moz-user-select: -moz-none;
@@ -91,14 +91,34 @@
     http://css-tricks.com/13224-pseudo-spriting/ to get an idea of how to implement 
     .context-menu-item.icon:before {}
  */
-.context-menu-item.icon { min-height: 18px; background-repeat: no-repeat; background-position: 4px 2px; }
-.context-menu-item.icon-edit { background-image: url(../../lib/contextMenu/images/page_white_edit.png); }
-.context-menu-item.icon-cut { background-image: url(../../lib/contextMenu/images/cut.png); }
-.context-menu-item.icon-copy { background-image: url(../../lib/contextMenu/images/page_white_copy.png); }
-.context-menu-item.icon-paste { background-image: url(../../lib/contextMenu/images/page_white_paste.png); }
-.context-menu-item.icon-delete { background-image: url(../../lib/contextMenu/images/page_white_delete.png); }
-.context-menu-item.icon-add { background-image: url(images/page_white_add.png); }
-.context-menu-item.icon-quit { background-image: url(../../lib/contextMenu/images/door.png); }
+.context-menu-item.icon {
+    background-image: url(../images/icons.png);
+    min-height: 14px;
+    background-repeat: no-repeat;
+    /*background-position: 4px 2px; */
+}
+.context-menu-item.icon-edit { background-position: 0px -335px;}
+.context-menu-item.icon-cut { background-position: 0px -256px;}
+.context-menu-item.icon-copy { background-position: 0px -240px;}
+.context-menu-item.icon-move { background-position: 0px -288px;}
+.context-menu-item.icon-rename { background-position: 0px -320px;}
+.context-menu-item.icon-remove { background-position: 0px -96px;}
+
+
+.context-menu-item.icon-pathparent { background-position: 0px -608px;}
+.context-menu-item.icon-selectall { background-position: 0px -448px;}
+.context-menu-item.icon-paste { background-position: 0px -272px;}
+.context-menu-item.icon-refresh { background-position: 0px -622px;}
+.context-menu-item.icon-touch { background-position: 0px -208px;}
+.context-menu-item.icon-mkdir { background-position: 0px -192px;}
+
+
+/*.context-menu-item.icon-cut { background-image: url(../../lib/contextMenu/images/cut.png); }*/
+/*.context-menu-item.icon-copy { background-image: url(../../lib/contextMenu/images/page_white_copy.png); }*/
+/*.context-menu-item.icon-paste { background-image: url(../../lib/contextMenu/images/page_white_paste.png); }*/
+/*.context-menu-item.icon-delete { background-image: url(../../lib/contextMenu/images/page_white_delete.png); }*/
+/*.context-menu-item.icon-add { background-image: url(images/page_white_add.png); }*/
+/*.context-menu-item.icon-quit { background-image: url(../../lib/contextMenu/images/door.png); }*/
 
 /* vertically align inside labels */
 .context-menu-input > label > * { vertical-align: top; }

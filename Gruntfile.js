@@ -75,7 +75,7 @@ module.exports = function (grunt) {
             base: {
                 files: [
                     {
-                        src: [ 'dialogs/**', 'lang/**', 'lib/**', 'server/**', 'themes/**'],
+                        src: [ "ufinder*.js", 'dialogs/**', 'lang/**', 'lib/**', 'server/**', 'themes/**'],
                         dest: distDir
                     }
                 ]

@@ -240,25 +240,48 @@ function getRealpath($path)
 
 function getPreview($path, $ROOT)
 {
+    global $config;
     $filepath = $ROOT . $path;
     $type = getFileExt($path);
-    if ($type == ".mp3") {
-        $template = './templates/muplayer/demo.html';              //模板文件路径
+    $cfg = $config['TEMPLATES'];
+    $cls = null; $tmpl = null;
+    foreach ($cfg as $k => $v) {
+        if (in_array($type, explode("|", $v['key']))){
+            $cls = $k;
+            $tmpl = $v['tmpl'];
+            break;
+        }
+    }
+
+    // 获取头信息
+    require_once('./lib/getID3/getid3/getid3.php');
+    $getID3 = new getID3;
+    $ThisFileInfo = $getID3->analyze($ROOT . $path);
+//    return $ThisFileInfo;
+//    if (true) {
+        if (is_null($cls)) {
+            $cls = "default";
+            $template = "./templates/default.html";
+        } else
+            $template = $tmpl;              //模板文件路径
+
+
         $replaceAry = array(                    //要查找替换的内容 每行一个
             '{filename}' => strrchr($path, '/'),
             '{path}' => getRealpath($ROOT . $path),
-            '{root}' => 'server/' . $template . "/../"
+            '{root}' => 'server/' . $template . "/../",
+            '{type}' => $type
         );
         $content = file_get_contents($template);
-        // 获取头信息
-        require_once('./lib/getID3/getid3/getid3.php');
-        $getID3 = new getID3;
-        $ThisFileInfo = $getID3->analyze($ROOT . $path);
-        if ($ThisFileInfo['audio'])
-            $replaceAry = array_merge($replaceAry, $ThisFileInfo['audio']);
+        if ($cls == "default")
+            $replaceAry = array_merge($replaceAry, $ThisFileInfo);
+        if ($ThisFileInfo[$cls])
+            $replaceAry = array_merge($replaceAry, $ThisFileInfo[$cls]);
+
         $content = str_replace(array_keys($replaceAry), $replaceAry, $content);
         return $content;
-    } else if ($type == ".m4v") {
+//    }
+/* else if ($type == ".m4v") {
         $template = './templates/video-js/demo.html';              //模板文件路径
         $replaceAry = array(                    //要查找替换的内容 每行一个
             '{filename}' => strrchr($path, '/'),
@@ -274,9 +297,26 @@ function getPreview($path, $ROOT)
             $replaceAry = array_merge($replaceAry, $ThisFileInfo['audio']);
         $content = str_replace(array_keys($replaceAry), $replaceAry, $content);
         return $content;
-    } else {
-        return sprintf("<b>path: %s </br>type:$type </br>暂无预览</b>", $path, $type);
-    }
+    }  else if ($type == ".txt") {
+        $template = './templates/ueditor/index.html';              //模板文件路径
+        $replaceAry = array(                    //要查找替换的内容 每行一个
+            '{filename}' => strrchr($path, '/'),
+            '{path}' => getRealpath($ROOT . $path),
+            '{root}' => 'server/' . $template . "/../"
+        );
+        $content = file_get_contents($template);
+        // 获取头信息
+        require_once('./lib/getID3/getid3/getid3.php');
+        $getID3 = new getID3;
+        $ThisFileInfo = $getID3->analyze($ROOT . $path);
+        if ($ThisFileInfo['audio'])
+            $replaceAry = array_merge($replaceAry, $ThisFileInfo['audio']);
+        $content = str_replace(array_keys($replaceAry), $replaceAry, $content);
+        return $content;
+    }*/
+//else {
+//        return sprintf("<div style='margin-top: 180px;'><b >path: %s </br>type:$type </br>暂无预览</b></div>", $path, $type);
+//    }
 }
 
 
